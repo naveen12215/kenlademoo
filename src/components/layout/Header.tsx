@@ -36,7 +36,7 @@ export function Header({ onSearch }: HeaderProps) {
           >
             <Image
               src="/logo.svg"
-              alt=""
+              alt="Kenla Systems"
               width={140}
               height={50}
               className="h-8 w-auto"

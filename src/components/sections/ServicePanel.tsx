@@ -14,7 +14,11 @@ import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export function ServicePanel() {
+export function ServicePanel({
+  headingAs = "h2",
+}: {
+  headingAs?: "h1" | "h2";
+}) {
   const [active, setActive] = useState(services[0].slug);
   const service = useMemo(
     () => services.find((item) => item.slug === active) ?? services[0],
@@ -35,6 +39,7 @@ export function ServicePanel() {
           eyebrow="Services"
           title="Nine services. One team."
           subtitle="Select a service — we take it from architecture through launch and the years after."
+          titleAs={headingAs}
         />
 
         <div className="@container lg:grid lg:grid-cols-12 lg:items-start lg:gap-16">

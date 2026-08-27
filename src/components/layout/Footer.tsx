@@ -11,6 +11,8 @@ const colophon = [
   { label: "Project", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
 ];
 
 export function Footer() {

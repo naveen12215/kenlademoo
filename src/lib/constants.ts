@@ -3,7 +3,7 @@ import type { CompanyStat } from "@/types";
 export const COMPANY_NAME = "Kenla Systems";
 export const COMPANY_TAGLINE = "Engineering Tomorrow's Software, Today";
 export const COMPANY_DESCRIPTION =
-  "Since 2009, Kenla Systems has been a trusted technology partner delivering custom software, AI/ML solutions, cloud infrastructure, and blockchain applications for businesses worldwide.";
+  "Kenla Systems builds custom software, AI/ML, cloud, and blockchain products — Chennai and California, since 2009. Start a conversation.";
 export const COMPANY_LOCATION = "Chennai, India";
 export const COMPANY_FOUNDED = 2009;
 export const COMPANY_EMAIL = "inquiries@kenlasystem.com";
@@ -16,4 +16,4 @@ export const companyStats: CompanyStat[] = [
 ];
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://kenlasystems.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.kenlasystems.com";

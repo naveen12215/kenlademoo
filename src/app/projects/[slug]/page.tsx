@@ -7,6 +7,9 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { CtaBand } from "@/components/sections/CtaBand";
 import Link from "next/link";
 import { getProject, projects } from "@/data/projects";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
+import { canonicalFor } from "@/lib/metadata";
 import { iconForTechName } from "@/lib/tech-icons";
 import { serviceForProject } from "@/lib/tech-used-in";
 
@@ -25,10 +28,11 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) return { title: "Project Not Found" };
+  if (!project) return { title: "Project Not Found", robots: { index: false } };
   return {
     title: project.title,
     description: project.challenge.slice(0, 160),
+    ...canonicalFor(`/projects/${project.slug}`),
   };
 }
 
@@ -48,6 +52,13 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          { name: project.title, path: `/projects/${project.slug}` },
+        ])}
+      />
       <section className="pt-10 pb-12 lg:pt-14 lg:pb-16">
         <Container>
           <FadeIn>

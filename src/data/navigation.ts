@@ -15,6 +15,9 @@ export function plateForPath(pathname: string) {
   if (pathname.startsWith("/projects")) return "KS-04  FILES";
   if (pathname.startsWith("/about")) return "KS-05  STUDIO";
   if (pathname.startsWith("/contact")) return "KS-06  CONTACT";
+  if (pathname.startsWith("/privacy") || pathname.startsWith("/terms")) {
+    return "KS-07  LEGAL";
+  }
   if (pathname === "/") return "KS-01  HOME";
   return "KS-00  MISSING";
 }

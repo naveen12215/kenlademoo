@@ -9,6 +9,8 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { iconForTechName } from "@/lib/tech-icons";
 import { projectsForService } from "@/lib/tech-used-in";
 import type { Service } from "@/types";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/jsonld";
 
 interface ServicePageLayoutProps {
   service: Service;
@@ -29,6 +31,20 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
 
   return (
     <>
+      <JsonLd
+        data={serviceJsonLd({
+          name: service.title,
+          description: service.shortDescription,
+          slug: service.slug,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ])}
+      />
       <PageIntro
         eyebrow="Service"
         title={service.title}

@@ -11,6 +11,7 @@ interface SectionHeadingProps {
   eyebrow?: string;
   index?: string;
   subtitleClassName?: string;
+  titleAs?: "h1" | "h2";
 }
 
 export function SectionHeading({
@@ -22,6 +23,7 @@ export function SectionHeading({
   eyebrow,
   index,
   subtitleClassName,
+  titleAs: TitleTag = "h2",
 }: SectionHeadingProps) {
   return (
     <FadeIn direction="up">
@@ -40,14 +42,14 @@ export function SectionHeading({
             {eyebrow}
           </p>
         )}
-        <h2
+        <TitleTag
           className={cn(
             "display-h2 font-extrabold tracking-tight",
             !gradient && "text-dark"
           )}
         >
           {gradient ? <GradientText>{title}</GradientText> : title}
-        </h2>
+        </TitleTag>
       </div>
       {subtitle && (
         <p

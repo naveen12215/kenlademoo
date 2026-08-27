@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getService, services } from "@/data/services";
 import { ServicePageLayout } from "@/components/sections/ServicePageLayout";
+import { canonicalFor } from "@/lib/metadata";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -18,10 +19,11 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
-  if (!service) return { title: "Service Not Found" };
+  if (!service) return { title: "Service Not Found", robots: { index: false } };
   return {
     title: service.title,
     description: service.shortDescription,
+    ...canonicalFor(`/services/${service.slug}`),
   };
 }
 

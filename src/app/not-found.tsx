@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/Button";
 import { GradientText } from "@/components/ui/GradientText";
 import { CropMarks } from "@/components/ui/CropMarks";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: true },
+};
+
 export default function NotFound() {
   return (
     <section className="relative flex min-h-[50vh] items-center overflow-hidden py-16">

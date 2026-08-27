@@ -8,11 +8,13 @@ import { StudioStory } from "@/components/about/StudioStory";
 import { StudioValues } from "@/components/about/StudioValues";
 import { StudioStats } from "@/components/about/StudioStats";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { canonicalFor } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
     "Learn the story behind Kenla Systems — founded in 2009 in Chennai, India, we have grown from a small team into a trusted technology partner delivering custom software, AI/ML, cloud, and blockchain solutions to clients worldwide.",
+  ...canonicalFor("/about"),
 };
 
 const timelineEvents = [

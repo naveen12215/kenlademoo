@@ -5,11 +5,13 @@ import { GradientText } from "@/components/ui/GradientText";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { TechGrid } from "@/components/sections/TechGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { canonicalFor } from "@/lib/metadata";
 
 export const metadata: Metadata = {
-  title: "Technologies",
+  title: "Stack",
   description:
     "Explore Kenla Systems' full technology stack — from React and Node.js to TensorFlow, Solidity, and Kubernetes.",
+  ...canonicalFor("/technologies"),
 };
 
 export default function TechnologiesPage() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "motion/react";
 
 interface AnimatedCounterProps {
@@ -21,15 +21,22 @@ export function AnimatedCounter({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
   const prefersReducedMotion = useReducedMotion();
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(value);
+  const started = useRef(false);
 
-  if (isInView && prefersReducedMotion && displayValue !== value) {
-    setDisplayValue(value);
-  }
+  useLayoutEffect(() => {
+    if (!isInView || started.current) return;
+    if (prefersReducedMotion) return;
+    started.current = true;
+    setDisplayValue(0);
+  }, [isInView, prefersReducedMotion]);
 
   useEffect(() => {
     if (!isInView) return;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      setDisplayValue(value);
+      return;
+    }
 
     let startTime: number | null = null;
     let rafId: number;

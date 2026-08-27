@@ -58,6 +58,7 @@ export function Hero() {
               transition={{ type: "spring", stiffness: 50, damping: 22, mass: 0.8 }}
             >
               <LineReveal
+                as="p"
                 className="display-hero font-heading font-extrabold tracking-tight text-dark"
                 lines={[
                   "SOFTWARE",
@@ -71,9 +72,9 @@ export function Hero() {
             <div className="ink-rule mt-5 max-w-[14rem]" />
 
             <FadeIn direction="up" delay={0.5}>
-              <p className="mt-5 max-w-lg font-heading text-lg font-extrabold tracking-tight text-dark">
+              <h1 className="mt-5 max-w-lg font-heading text-lg font-extrabold tracking-tight text-dark">
                 We build software that moves business forward.
-              </p>
+              </h1>
               <p className="mt-3 max-w-lg text-base leading-relaxed font-medium text-warm-800">
                 {COMPANY_TAGLINE}. Custom platforms, AI, cloud, and blockchain —
                 designed, built, and run by one team.

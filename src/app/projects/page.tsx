@@ -7,11 +7,13 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { projects } from "@/data/projects";
+import { canonicalFor } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
     "Explore how Kenla Systems has helped clients across industries solve complex challenges with custom software, AI, cloud infrastructure, and blockchain solutions.",
+  ...canonicalFor("/projects"),
 };
 
 export default function ProjectsPage() {

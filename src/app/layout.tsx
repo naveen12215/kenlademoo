@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { jakarta, plexMono } from "@/lib/fonts";
 import { siteMetadata } from "@/lib/metadata";
 import { SiteChrome } from "@/components/layout/SiteChrome";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organizationJsonLd } from "@/lib/jsonld";
 import { Toaster } from "sonner";
 import "./globals.css";
 
@@ -21,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${plexMono.variable}`} suppressHydrationWarning>
       <body className="font-body antialiased" suppressHydrationWarning>
+        <JsonLd data={organizationJsonLd()} />
         <SiteChrome>
           <main
             id="main-content"

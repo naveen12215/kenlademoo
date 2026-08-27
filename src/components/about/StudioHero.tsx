@@ -25,11 +25,12 @@ export function StudioHero() {
 
       <Container className="relative">
         <FadeIn>
-          <p className="eyebrow mb-5">About</p>
+          <h1 className="eyebrow mb-5">About Kenla Systems</h1>
         </FadeIn>
 
         <div className="year-frame">
           <LineReveal
+            as="p"
             className="display-year font-heading font-extrabold tracking-tight"
             lines={[
               <GradientText key="year">2009</GradientText>,
