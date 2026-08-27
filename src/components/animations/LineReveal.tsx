@@ -7,7 +7,7 @@ import { motionEase } from "@/lib/motion";
 interface LineRevealProps {
   lines: React.ReactNode[];
   className?: string;
-  as?: "h1" | "h2" | "div";
+  as?: "h1" | "h2" | "div" | "p";
   delay?: number;
 }
 
