@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { Magnetic } from "@/components/animations/Magnetic";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CropMarks } from "@/components/ui/CropMarks";
 
 interface CtaBandProps {
   title?: string;
@@ -22,18 +23,19 @@ export function CtaBand({
     <section
       className={cn(
         "relative",
-        isGradient
-          ? "brand-gradient-bg lg:-ml-24 lg:w-[calc(100%+6rem)]"
-          : "bg-warm-100"
+        isGradient ? "brand-gradient-bg cta-wash" : "bg-warm-100"
       )}
     >
-      <Container className="relative py-20 lg:py-24">
+      <Container className="relative py-14 lg:py-20">
+        {isGradient && (
+          <CropMarks className="hidden sm:block [&_.crop-mark]:border-white/70" />
+        )}
         <FadeIn>
           <div className="grid items-end gap-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <h2
                 className={cn(
-                  "max-w-2xl text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]",
+                  "display-h2 max-w-2xl font-extrabold tracking-tight",
                   isGradient ? "text-white" : "text-dark"
                 )}
               >
@@ -41,7 +43,7 @@ export function CtaBand({
               </h2>
               <p
                 className={cn(
-                  "mt-4 max-w-lg text-[17px] leading-relaxed font-medium lg:text-xl",
+                  "mt-4 max-w-lg text-lg leading-relaxed font-medium",
                   isGradient ? "text-white/90" : "text-warm-800"
                 )}
               >

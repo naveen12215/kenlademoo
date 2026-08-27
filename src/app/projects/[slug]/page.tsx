@@ -5,12 +5,16 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { projects } from "@/data/projects";
+import Link from "next/link";
+import { getProject, projects } from "@/data/projects";
 import { iconForTechName } from "@/lib/tech-icons";
+import { serviceForProject } from "@/lib/tech-used-in";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -20,7 +24,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const project = getProject(slug);
   if (!project) return { title: "Project Not Found" };
   return {
     title: project.title,
@@ -30,10 +34,17 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const project = getProject(slug);
   if (!project) notFound();
 
-  const related = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
+  const related = projects
+    .filter((item) => item.slug !== project.slug)
+    .sort((a, b) => {
+      const share = (item: typeof a) =>
+        item.services.some((name) => project.services.includes(name)) ? 0 : 1;
+      return share(a) - share(b);
+    })
+    .slice(0, 2);
 
   return (
     <>
@@ -42,7 +53,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <FadeIn>
             <Button href="/projects" variant="outline" size="sm">
               <ArrowLeft className="h-3.5 w-3.5" />
-              All files
+              All projects
             </Button>
           </FadeIn>
           <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
@@ -51,7 +62,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 <p className="eyebrow mb-4">{project.industry}</p>
               </FadeIn>
               <FadeIn direction="up" delay={0.06}>
-                <h1 className="text-4xl leading-[1.08] font-extrabold tracking-tight text-dark sm:text-5xl lg:text-[3.6rem]">
+                <h1 className="display-h1 font-extrabold tracking-tight text-dark">
                   {project.title}
                 </h1>
               </FadeIn>
@@ -61,7 +72,24 @@ export default async function ProjectPage({ params }: PageProps) {
                 {project.client}
               </p>
               <p className="mt-2 text-[15px] font-medium text-warm-700">
-                {project.services.join(" · ")}
+                {project.services.map((name, index) => {
+                  const match = serviceForProject(name);
+                  return (
+                    <span key={name}>
+                      {index > 0 ? " · " : null}
+                      {match ? (
+                        <Link
+                          href={`/services/${match.slug}`}
+                          className="hover:text-brand-orange"
+                        >
+                          {name}
+                        </Link>
+                      ) : (
+                        name
+                      )}
+                    </span>
+                  );
+                })}
               </p>
             </FadeIn>
           </div>
@@ -153,10 +181,10 @@ export default async function ProjectPage({ params }: PageProps) {
       </section>
 
       {related.length > 0 && (
-        <section className="border-t border-warm-200 py-16 lg:py-24">
+        <section className="border-t border-warm-200 py-12 lg:py-16">
           <Container>
             <h2 className="font-heading mb-8 text-2xl font-extrabold tracking-tight text-dark">
-              More files
+              More projects
             </h2>
             <ul className="grid gap-4 sm:grid-cols-2">
               {related.map((item) => (

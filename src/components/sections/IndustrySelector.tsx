@@ -35,14 +35,13 @@ export function IndustrySelector() {
   }
 
   return (
-    <section className="bg-warm-100/70 py-24 lg:py-32">
+    <section className="bg-warm-100/70 py-12 lg:py-16">
       <Container>
         <SectionHeading
           index="03"
           eyebrow="Stack builder"
           title="Pick an industry — or a product type."
-          subtitle="We'll surface the practice, a matching engagement, and the stack we would actually use. Not a brochure. A working brief."
-          subtitleClassName="text-warm-700"
+          subtitle="We'll surface the service, a matching engagement, and the stack we would actually use. Not a brochure. A working brief."
         />
 
         <div className="sticky top-[6.25rem] z-20 -mx-4 mb-8 bg-warm-100/90 px-4 py-3 backdrop-blur-md lg:static lg:top-auto lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
@@ -69,23 +68,24 @@ export function IndustrySelector() {
             ))}
           </div>
 
-          <div className="chip-scroll flex gap-2 overflow-x-auto pb-1 lg:flex-wrap lg:overflow-visible">
+          <div className="chip-scroll flex gap-2 overflow-x-auto py-1 lg:flex-wrap lg:overflow-visible">
             {options.map((item) => {
               const isActive = item.slug === active;
               return (
                 <button
                   key={item.slug}
                   type="button"
+                  aria-pressed={isActive}
                   onClick={() => setActive(item.slug)}
                   className={cn(
-                    "relative shrink-0 px-3 py-1.5 text-[13px] font-medium transition-colors",
-                    isActive ? "text-white" : "bg-white text-warm-700 hover:text-dark"
+                    "chip-pop relative shrink-0 rounded-md px-3 py-1.5 text-[13px] font-medium",
+                    isActive ? "z-10 text-white" : "bg-white text-warm-700"
                   )}
                 >
                   {isActive && (
                     <motion.span
                       layoutId={`stack-pill-${mode}`}
-                      className="brand-gradient-bg absolute inset-0"
+                      className="brand-gradient-bg absolute inset-0 rounded-md"
                       transition={{ type: "spring", stiffness: 380, damping: 32 }}
                     />
                   )}

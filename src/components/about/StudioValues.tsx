@@ -36,14 +36,14 @@ export function StudioValues({ values }: { values: StudioValue[] }) {
   }, [index, values.length]);
 
   return (
-    <section className="bg-warm-100/70 py-20 lg:py-28">
+    <section className="bg-warm-100/70 py-12 lg:py-16">
       <Container>
         <SectionHeading
           index="03"
           eyebrow="Principles"
           title="What we stand for"
           subtitle="The principles that guide every decision, every line of code, and every client relationship."
-          subtitleClassName="text-warm-700"
+
         />
 
         <div className="relative overflow-hidden rounded-xl bg-white p-7 shadow-[0_18px_40px_rgba(238,122,72,0.1)] md:p-10 lg:p-12">
@@ -55,7 +55,7 @@ export function StudioValues({ values }: { values: StudioValue[] }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35, ease }}
-              className="ghost-type absolute -top-4 right-4 text-[6.5rem] lg:-top-8 lg:right-8 lg:text-[10rem]"
+              className="ghost-type absolute -top-4 right-4 text-[4.5rem] lg:-top-6 lg:right-6 lg:text-[6.5rem]"
               aria-hidden="true"
             >
               {String(index + 1).padStart(2, "0")}

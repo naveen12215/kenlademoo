@@ -10,7 +10,7 @@ import { companyStats } from "@/lib/constants";
 
 export function StudioStats() {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-12 lg:py-16">
       <Container>
         <FadeIn>
           <SectionHeading
@@ -18,7 +18,7 @@ export function StudioStats() {
             eyebrow="Proof"
             title="By the numbers"
             subtitle="Quiet proof. Loud enough."
-            subtitleClassName="text-warm-700"
+
           />
         </FadeIn>
 

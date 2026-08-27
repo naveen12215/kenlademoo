@@ -19,11 +19,10 @@ export default function TechnologiesPage() {
         eyebrow="Materials"
         title={<GradientText>Stack</GradientText>}
         body="Search, filter, and see where each tool has shipped. Fifty-four technologies we actually run in production."
-        bodyClassName="text-[15px] font-medium text-warm-700"
         marks={false}
       />
 
-      <section className="pb-24 lg:pb-32">
+      <section className="pb-14 lg:pb-16">
         <Container>
           <Suspense
             fallback={

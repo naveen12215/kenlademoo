@@ -1,13 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { motion } from "motion/react";
 import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TechGridCategorized } from "@/components/sections/TechGridCategorized";
+import {
+  TechFlyoutProvider,
+  TechName,
+  TechRow,
+} from "@/components/sections/TechTip";
 import { technologies, techCategories } from "@/data/technologies";
-import { techIconMap } from "@/lib/tech-icons";
 import { techUsedIn } from "@/lib/tech-used-in";
 import type { TechCategory } from "@/types";
 
@@ -29,16 +32,13 @@ const filters: { key: FilterKey; label: string }[] = [
 
 export function TechGrid() {
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("q") ?? "";
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
-  const [query, setQuery] = useState(searchQuery);
-  const [seenQuery, setSeenQuery] = useState(searchQuery);
+  const [query, setQuery] = useState("");
 
-  if (searchQuery !== seenQuery) {
-    setSeenQuery(searchQuery);
-    setQuery(searchQuery);
-  }
+  useEffect(() => {
+    setQuery(searchParams.get("q") ?? "");
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -48,6 +48,7 @@ export function TechGrid() {
         !q ||
         tech.name.toLowerCase().includes(q) ||
         tech.description.toLowerCase().includes(q) ||
+        tech.usedFor.toLowerCase().includes(q) ||
         tech.category.toLowerCase().includes(q) ||
         tech.proficiency.toLowerCase().includes(q);
       return inFilter && inQuery;
@@ -55,7 +56,8 @@ export function TechGrid() {
   }, [activeFilter, query]);
 
   return (
-    <div>
+    <TechFlyoutProvider>
+      <div>
       <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <label className="relative block max-w-md flex-1">
           <span className="sr-only">Search the stack</span>
@@ -100,18 +102,11 @@ export function TechGrid() {
               className={cn(
                 "relative shrink-0 rounded-md px-3.5 py-2 text-[13px] font-semibold transition-colors",
                 isActive
-                  ? "text-white shadow-sm"
+                  ? "brand-gradient-bg text-white shadow-sm"
                   : "bg-white text-warm-700 hover:text-dark"
               )}
             >
-              {isActive && (
-                <motion.span
-                  layoutId="tech-filter-pill"
-                  className="brand-gradient-bg absolute inset-0 rounded-md"
-                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                />
-              )}
-              <span className="relative z-10">{item.label}</span>
+              {item.label}
             </button>
           );
         })}
@@ -138,31 +133,17 @@ export function TechGrid() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map((tech) => {
-                const iconEntry = techIconMap[tech.icon];
+              {filtered.map((tech, index) => {
                 const used = techUsedIn(tech.name);
                 return (
-                  <tr
+                  <TechRow
                     key={tech.name}
+                    tech={tech}
+                    index={index}
                     className="wash-hover border-t border-warm-200"
                   >
                     <td className="py-3.5 pr-4">
-                      <span className="flex items-center gap-2.5">
-                        {iconEntry &&
-                          (() => {
-                            const { icon: Icon, color } = iconEntry;
-                            return (
-                              <Icon
-                                size={20}
-                                className="shrink-0"
-                                style={{ color }}
-                              />
-                            );
-                          })()}
-                        <span className="text-[15px] font-semibold text-warm-800">
-                          {tech.name}
-                        </span>
-                      </span>
+                      <TechName tech={tech} />
                     </td>
                     <td className="py-3.5 pr-4 text-[13px] font-medium text-warm-700">
                       {techCategories[tech.category]}
@@ -173,7 +154,7 @@ export function TechGrid() {
                     <td className="py-3.5 text-[13px] font-medium text-warm-700">
                       {used.length ? used.join(", ") : "Core to how we ship"}
                     </td>
-                  </tr>
+                  </TechRow>
                 );
               })}
             </tbody>
@@ -182,6 +163,7 @@ export function TechGrid() {
       ) : (
         <TechGridCategorized technologies={filtered} />
       )}
-    </div>
+      </div>
+    </TechFlyoutProvider>
   );
 }

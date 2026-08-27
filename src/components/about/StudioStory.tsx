@@ -26,7 +26,7 @@ const chapters = [
 
 export function StudioStory() {
   return (
-    <section className="bg-warm-100/70 py-20 lg:py-28">
+    <section className="bg-warm-100/70 py-12 lg:py-16">
       <Container>
         <FadeIn>
           <SectionHeading
@@ -34,7 +34,7 @@ export function StudioStory() {
             eyebrow="Story"
             title="Where it all began"
             subtitle="A story of craft, not a spec sheet."
-            subtitleClassName="text-warm-700"
+
           />
         </FadeIn>
 

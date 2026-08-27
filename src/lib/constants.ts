@@ -6,7 +6,7 @@ export const COMPANY_DESCRIPTION =
   "Since 2009, Kenla Systems has been a trusted technology partner delivering custom software, AI/ML solutions, cloud infrastructure, and blockchain applications for businesses worldwide.";
 export const COMPANY_LOCATION = "Chennai, India";
 export const COMPANY_FOUNDED = 2009;
-export const COMPANY_EMAIL = "hello@kenlasystems.com";
+export const COMPANY_EMAIL = "inquiries@kenlasystem.com";
 
 export const companyStats: CompanyStat[] = [
   { value: 15, suffix: "+", label: "Years of Experience" },

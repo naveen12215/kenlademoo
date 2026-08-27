@@ -25,20 +25,20 @@ const points = [
 
 export function WhyKenla() {
   return (
-    <section className="bg-warm-100/60 py-24 lg:py-32">
+    <section className="bg-warm-100/60 py-12 lg:py-16">
       <Container>
         <SectionHeading
           index="06"
           eyebrow="Why Kenla"
           title="A service company that still writes the software."
           subtitle="From first sketch to production, we stay on the work."
-          subtitleClassName="text-warm-700"
         />
 
         <StaggerChildren className="grid gap-4 md:grid-cols-3">
           {points.map((item, index) => (
             <StaggerItem key={item.title}>
-              <div className="studio-value h-full rounded-xl bg-white p-8 shadow-[0_12px_28px_rgba(238,122,72,0.08)] md:p-10">
+              <div className="studio-value group relative h-full overflow-hidden rounded-xl bg-white p-8 shadow-[0_12px_28px_rgba(238,122,72,0.08)] md:p-10">
+                <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
                 <p className="index-num mb-6">
                   {String(index + 1).padStart(2, "0")}
                 </p>

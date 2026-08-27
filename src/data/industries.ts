@@ -83,7 +83,7 @@ export const industryProfiles: IndustryProfile[] = [
     kind: "industry",
     summary:
       "Marketplaces, storefronts, and the operational tools behind them — catalog, checkout, and the admin layer your team lives in.",
-    serviceSlugs: ["custom-software", "cloud-devops"],
+    serviceSlugs: ["web-development", "custom-software", "cloud-devops"],
     techNames: [
       "Next.js",
       "React",
@@ -119,7 +119,7 @@ export const industryProfiles: IndustryProfile[] = [
     kind: "build",
     summary:
       "From a proof of concept to a production RAG pipeline, model ops, and the product UI around it. We take the whole path.",
-    serviceSlugs: ["ai-ml", "custom-software"],
+    serviceSlugs: ["ai-ml", "rapid-prototyping", "custom-software"],
     projectSlug: "ai-document-processing",
     techNames: [
       "Python",
@@ -157,7 +157,8 @@ export const industryProfiles: IndustryProfile[] = [
     kind: "build",
     summary:
       "Native-quality iOS and Android from one team — React Native or Flutter, with the APIs and cloud they need behind them.",
-    serviceSlugs: ["custom-software", "cloud-devops"],
+    serviceSlugs: ["mobile-development", "custom-software", "cloud-devops"],
+    projectSlug: "paraverse-blockchain",
     techNames: [
       "React Native",
       "Flutter",
@@ -167,6 +168,40 @@ export const industryProfiles: IndustryProfile[] = [
       "TypeScript",
       "Firebase",
       "AWS",
+    ],
+  },
+  {
+    slug: "government",
+    label: "Government",
+    kind: "industry",
+    summary:
+      "Public-sector systems that have to stay up, stay auditable, and still ship — test automation, compliance, and the platforms behind citizen services.",
+    serviceSlugs: ["automation", "cloud-devops"],
+    projectSlug: "public-sector-automation",
+    techNames: [
+      "Java",
+      "Python",
+      "Jenkins",
+      "GitHub Actions",
+      "Microsoft Azure",
+      "Docker",
+    ],
+  },
+  {
+    slug: "enterprise-ops",
+    label: "Enterprise ops",
+    kind: "build",
+    summary:
+      "Finance and back-office work that still runs on inboxes — AI extraction, policy rules, and a workflow that writes back into the system of record.",
+    serviceSlugs: ["ai-ml", "automation"],
+    projectSlug: "expense-ai-auditing",
+    techNames: [
+      "Python",
+      "OpenAI / GPT",
+      "LangChain",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
     ],
   },
 ];

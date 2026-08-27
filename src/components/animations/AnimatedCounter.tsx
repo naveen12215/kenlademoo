@@ -7,6 +7,7 @@ interface AnimatedCounterProps {
   value: number;
   suffix?: string;
   duration?: number;
+  delay?: number;
   className?: string;
 }
 
@@ -14,6 +15,7 @@ export function AnimatedCounter({
   value,
   suffix = "",
   duration = 2,
+  delay = 0,
   className,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -34,7 +36,11 @@ export function AnimatedCounter({
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
+      const elapsed = timestamp - startTime - delay * 1000;
+      if (elapsed < 0) {
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
       const progress = Math.min(elapsed / (duration * 1000), 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setDisplayValue(Math.floor(eased * value));
@@ -48,15 +54,15 @@ export function AnimatedCounter({
 
     rafId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView, value, duration, prefersReducedMotion]);
+  }, [isInView, value, duration, delay, prefersReducedMotion]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref}>
       <span className="sr-only">
         {value}
         {suffix}
       </span>
-      <span aria-hidden="true">
+      <span aria-hidden="true" className={className}>
         {displayValue}
         {suffix}
       </span>

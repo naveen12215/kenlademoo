@@ -19,7 +19,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       <label htmlFor={inputId} className="block text-[15px] font-semibold text-warm-800">
         {label}
       </label>
-      <div className="relative">
+      <div className="field-ink relative">
         <input
           ref={ref}
           id={inputId}

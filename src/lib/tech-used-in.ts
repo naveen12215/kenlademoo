@@ -24,3 +24,7 @@ export function techUsedIn(techName: string): string[] {
 export function serviceForProject(serviceTitle: string) {
   return services.find((service) => service.title === serviceTitle);
 }
+
+export function projectsForService(serviceTitle: string) {
+  return projects.filter((project) => project.services.includes(serviceTitle));
+}

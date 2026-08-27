@@ -1,8 +1,16 @@
 import { COMPANY_NAME, COMPANY_DESCRIPTION, SITE_URL } from "./constants";
 import type { Metadata } from "next";
 
+function metadataBase() {
+  try {
+    return new URL(SITE_URL);
+  } catch {
+    return new URL("https://kenlasystems.com");
+  }
+}
+
 export const siteMetadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: metadataBase(),
   title: {
     default: `${COMPANY_NAME} — Custom Software, AI/ML, Cloud & Blockchain`,
     template: `%s | ${COMPANY_NAME}`,
@@ -24,5 +32,10 @@ export const siteMetadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
   },
 };

@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { GradientText } from "./GradientText";
+import { FadeIn } from "@/components/animations/FadeIn";
 
 interface SectionHeadingProps {
   title: string;
@@ -23,9 +24,10 @@ export function SectionHeading({
   subtitleClassName,
 }: SectionHeadingProps) {
   return (
+    <FadeIn direction="up">
     <div
       className={cn(
-        "mb-12 md:mb-16",
+        "mb-8 md:mb-10",
         align === "center" && "text-center",
         align === "left" && "grid gap-6 lg:grid-cols-12 lg:items-end",
         className
@@ -40,7 +42,7 @@ export function SectionHeading({
         )}
         <h2
           className={cn(
-            "text-[2rem] font-extrabold tracking-tight sm:text-4xl lg:text-[3.15rem] lg:leading-[1.08]",
+            "display-h2 font-extrabold tracking-tight",
             !gradient && "text-dark"
           )}
         >
@@ -50,7 +52,7 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "max-w-xl text-[15px] leading-relaxed font-medium text-warm-700 lg:text-[17px]",
+            "max-w-xl text-lg leading-relaxed font-medium text-warm-800",
             subtitleClassName,
             align === "center" && "mx-auto mt-4",
             align === "left" && "lg:col-span-5 lg:mb-1"
@@ -60,5 +62,6 @@ export function SectionHeading({
         </p>
       )}
     </div>
+    </FadeIn>
   );
 }

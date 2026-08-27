@@ -21,7 +21,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         >
           {label}
         </label>
-        <div className="relative">
+        <div className="field-ink relative">
           <textarea
             ref={ref}
             id={inputId}

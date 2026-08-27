@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Magnetic } from "@/components/animations/Magnetic";
 import { projects } from "@/data/projects";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const INTERVAL_MS = 5000;
@@ -17,6 +17,10 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function FeaturedProject() {
   const [index, setIndex] = useState(0);
   const featured = projects[index];
+
+  function goPrev() {
+    setIndex((current) => (current - 1 + projects.length) % projects.length);
+  }
 
   useEffect(() => {
     const reduced =
@@ -32,12 +36,12 @@ export function FeaturedProject() {
   }, [index]);
 
   return (
-    <section className="border-t border-warm-200 py-20 lg:py-28">
+    <section className="border-t border-warm-200 py-12 lg:py-16">
       <Container>
         <SectionHeading
           index="04"
-          eyebrow="File"
-          title="One plate from the cabinet."
+          eyebrow="Project"
+          title="Work from the cabinet."
           subtitle="Problem, numbers, the line the client still repeats."
         />
 
@@ -53,7 +57,7 @@ export function FeaturedProject() {
                 transition={{ duration: 0.55, ease }}
               >
                 <span
-                  className="ghost-type absolute -top-8 right-4 text-[8rem] lg:text-[11rem]"
+                  className="ghost-type absolute -top-6 right-4 text-[5.5rem] lg:text-[7rem]"
                   aria-hidden="true"
                 >
                   {String(index + 1).padStart(2, "0")}
@@ -123,7 +127,17 @@ export function FeaturedProject() {
         </FadeIn>
 
         <div className="mt-6 flex items-center justify-between gap-4">
-          <div className="flex gap-2" role="tablist" aria-label="Project files">
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={goPrev}
+              aria-label="Previous project"
+              className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-[13px] font-semibold text-warm-800 transition-colors hover:bg-white hover:text-dark"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              Back
+            </button>
+          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Project files">
             {projects.map((project, projectIndex) => (
               <button
                 key={project.slug}
@@ -150,8 +164,9 @@ export function FeaturedProject() {
               </button>
             ))}
           </div>
+          </div>
           <Button href="/projects" variant="ghost">
-            All files
+            All projects
             <ArrowRight className="h-3.5 w-3.5" />
           </Button>
         </div>

@@ -8,7 +8,7 @@ import { LineReveal } from "@/components/animations/LineReveal";
 
 export function StudioHero() {
   return (
-    <section className="relative flex min-h-[78vh] items-end overflow-hidden pt-12 pb-20 lg:min-h-[86vh] lg:pb-28">
+    <section className="relative flex items-end overflow-hidden pt-10 pb-12 lg:pb-16">
       <div
         className="studio-watermark pointer-events-none absolute inset-0 flex items-center justify-end pr-[4%] lg:pr-[8%]"
         aria-hidden="true"
@@ -25,12 +25,12 @@ export function StudioHero() {
 
       <Container className="relative">
         <FadeIn>
-          <p className="eyebrow mb-5">Studio</p>
+          <p className="eyebrow mb-5">About</p>
         </FadeIn>
 
         <div className="year-frame">
           <LineReveal
-            className="font-heading text-[5.2rem] leading-[0.86] font-extrabold tracking-tight sm:text-[7.25rem] lg:text-[8.75rem]"
+            className="display-year font-heading font-extrabold tracking-tight"
             lines={[
               <GradientText key="year">2009</GradientText>,
             ]}
@@ -40,7 +40,7 @@ export function StudioHero() {
         <div className="ink-rule mt-5 max-w-[14rem]" />
 
         <FadeIn direction="up" delay={0.48}>
-          <p className="mt-8 max-w-lg text-[17px] leading-relaxed font-medium text-warm-800 lg:text-xl">
+          <p className="mt-8 max-w-lg text-lg leading-relaxed font-medium text-warm-800">
             Three engineers in Chennai. A California presence. Two hundred
             projects later, the mission is the same: software that actually
             moves the business.

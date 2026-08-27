@@ -1,5 +1,16 @@
-import { Code2, Brain, Cloud, Blocks } from "lucide-react";
+import {
+  Code2,
+  Brain,
+  Cloud,
+  Blocks,
+  Globe,
+  Smartphone,
+  FlaskConical,
+  ContactRound,
+  Workflow,
+} from "lucide-react";
 import type { Service } from "@/types";
+import { decodeSlug } from "@/lib/utils";
 
 export const services: Service[] = [
   {
@@ -166,4 +177,197 @@ export const services: Service[] = [
       "Tokenized real-world assets (RWA)",
     ],
   },
+  {
+    slug: "web-development",
+    title: "Web Development",
+    shortDescription:
+      "Modern web applications — from public sites and PWAs to e-commerce and enterprise portals — built for speed, SEO, and the years after launch.",
+    longDescription:
+      "When the web surface is the product, we treat it that way. We design and ship custom web applications, progressive web apps, e-commerce platforms, and secure portals — React and Next.js up front, APIs and data behind, CI/CD so it keeps shipping. Pages load fast, scale with traffic, and stay maintainable. Same Kenla team that owns the rest of the stack; this practice is the browser-facing work, done properly.",
+    icon: Globe,
+    features: [
+      "Custom web application development",
+      "Progressive web apps with offline and push support",
+      "E-commerce and marketplace storefronts",
+      "Customer, partner, and employee portals",
+      "RESTful and GraphQL API design and integration",
+      "SEO-ready server rendering and performance work",
+      "Responsive, accessible interfaces across devices",
+      "Content management and admin surfaces",
+    ],
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "PostgreSQL",
+      "MongoDB",
+      "GraphQL",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+    useCases: [
+      "Customer-facing web portals and dashboards",
+      "Internal business applications and tools",
+      "E-commerce and marketplace platforms",
+      "Content management systems",
+      "SaaS product surfaces",
+      "Legacy web modernization",
+    ],
+  },
+  {
+    slug: "mobile-development",
+    title: "Mobile Development",
+    shortDescription:
+      "Native and cross-platform apps for iOS and Android — from consumer products to field tools — designed, built, and released with the APIs they need.",
+    longDescription:
+      "We ship mobile products people actually keep on their home screen. Native iOS and Android when the platform matters; React Native or Flutter when one team should own both. Design, build, test, store submission, and the backend the app depends on — not a throw-over-the-wall handoff. Push, offline, payments, and enterprise auth when the brief needs them.",
+    icon: Smartphone,
+    features: [
+      "Native iOS development with Swift",
+      "Native Android development with Kotlin",
+      "Cross-platform apps with React Native and Flutter",
+      "Enterprise mobility, MDM, and SSO",
+      "App Store and Google Play submission and releases",
+      "Push notifications, offline mode, and device APIs",
+      "Mobile commerce and in-app payments",
+      "Ongoing maintenance and store updates",
+    ],
+    technologies: [
+      "Swift",
+      "Kotlin",
+      "React Native",
+      "Flutter",
+      "TypeScript",
+      "Firebase",
+      "Node.js",
+      "Expo",
+    ],
+    useCases: [
+      "Customer engagement and loyalty apps",
+      "Field service and workforce tools",
+      "Mobile commerce and payments",
+      "IoT companion applications",
+      "Health and fitness tracking",
+      "On-demand service platforms",
+    ],
+  },
+  {
+    slug: "rapid-prototyping",
+    title: "Rapid Prototyping",
+    shortDescription:
+      "Working prototypes in days, not months — so you can validate the idea before you staff a full build.",
+    longDescription:
+      "A sketch is enough to start. We turn concepts into clickable, working prototypes fast — AI-assisted where it actually speeds the loop, Kenla engineering where it has to be real. You get something stakeholders can click, users can try, and we can stress for technical risk — before you commit to infrastructure, a full team, and a six-month plan. If it holds, we take the same prototype into production. If it doesn't, you found out cheap.",
+    icon: FlaskConical,
+    features: [
+      "AI-assisted prototype development",
+      "Clickable demos for stakeholder and user testing",
+      "Idea and product-market validation",
+      "Iterative refinement from real feedback",
+      "Technical feasibility and architecture spikes",
+      "Investor and board-ready walkthroughs",
+      "Path from prototype into a production build",
+      "Scoped, time-boxed exploration without a full program",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Python",
+      "Firebase",
+      "Vercel",
+    ],
+    useCases: [
+      "Startup MVP development",
+      "New product feature validation",
+      "Internal tool proof-of-concepts",
+      "Investor demo preparation",
+      "User-research prototypes",
+      "Concept testing before a full build",
+    ],
+  },
+  {
+    slug: "salesforce",
+    title: "Salesforce",
+    shortDescription:
+      "Implement, customize, and integrate Salesforce so sales, service, and marketing actually run on one record.",
+    longDescription:
+      "Salesforce only pays off if people use it and the data is honest. We implement new orgs, reshape ones that have drifted, write the Apex and Lightning the platform cannot configure, and connect Salesforce to the ERP, marketing, and product systems around it. Training and a support path so adoption is not a slide deck. Same engineering discipline we bring to custom software — because a CRM that nobody trusts is just another database.",
+    icon: ContactRound,
+    features: [
+      "Salesforce implementation and org design",
+      "Custom Apex and Lightning Web Components",
+      "Sales Cloud, Service Cloud, and Experience Cloud",
+      "Marketing Cloud and campaign automation",
+      "ERP, marketing, and product integrations",
+      "Legacy CRM migration and org optimization",
+      "CPQ for complex quoting",
+      "Training, adoption, and ongoing support",
+    ],
+    technologies: [
+      "Sales Cloud",
+      "Service Cloud",
+      "Marketing Cloud",
+      "Experience Cloud",
+      "Apex",
+      "Lightning Web Components",
+      "MuleSoft",
+      "Tableau",
+    ],
+    useCases: [
+      "Sales Cloud for pipeline and forecasting",
+      "Service Cloud for support operations",
+      "Marketing Cloud for campaign automation",
+      "CPQ for complex quoting",
+      "Partner and customer community portals",
+      "Analytics and reporting dashboards",
+    ],
+  },
+  {
+    slug: "automation",
+    title: "Automation",
+    shortDescription:
+      "RPA, QA automation, and workflow design that take repetitive work off your team and put it on a pipeline.",
+    longDescription:
+      "Manual steps that used to be 'just how we do it' are where quality and time leak. We automate the boring path: software robots for rule-based work across apps, test suites that run on every commit, and workflows that route, approve, and record without a spreadsheet in the middle. We plug into the systems you already run. You get hours back and a trail you can audit — not a new pile of tools nobody owns.",
+    icon: Workflow,
+    features: [
+      "Robotic process automation for rule-based tasks",
+      "QA automation and continuous testing frameworks",
+      "Business workflow design, routing, and approvals",
+      "Integration with existing enterprise systems",
+      "Test automation for web, API, and regression suites",
+      "Exception handling with human review in the loop",
+      "Monitoring, logging, and audit trails",
+      "Playbooks so your team can extend the work",
+    ],
+    technologies: [
+      "Python",
+      "Selenium",
+      "Playwright",
+      "Jenkins",
+      "GitHub Actions",
+      "Node.js",
+      "REST APIs",
+      "PostgreSQL",
+    ],
+    useCases: [
+      "Back-office and claims processing robots",
+      "Regression and release test automation",
+      "Approval and routing workflows",
+      "Data entry and system-to-system handoffs",
+      "Public-sector and regulated test programs",
+      "Operations playbooks that run without a ticket pile",
+    ],
+  },
 ];
+
+export function getService(slug: string) {
+  const key = decodeSlug(slug);
+  if (!key) return undefined;
+  return services.find((item) => item.slug === key);
+}

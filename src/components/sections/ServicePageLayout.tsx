@@ -6,8 +6,8 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Magnetic } from "@/components/animations/Magnetic";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { projects } from "@/data/projects";
 import { iconForTechName } from "@/lib/tech-icons";
+import { projectsForService } from "@/lib/tech-used-in";
 import type { Service } from "@/types";
 
 interface ServicePageLayoutProps {
@@ -18,22 +18,21 @@ const toc = [
   { id: "deliverables", label: "Deliverables" },
   { id: "stack", label: "Stack" },
   { id: "use-cases", label: "Use cases" },
-  { id: "file", label: "File" },
+  { id: "file", label: "Files" },
 ];
 
 export function ServicePageLayout({ service }: ServicePageLayoutProps) {
-  const snapshot = projects.find((project) =>
-    project.services.includes(service.title)
-  );
-  const nav = snapshot ? toc : toc.filter((item) => item.id !== "file");
+  const snapshots = projectsForService(service.title);
+  const nav = snapshots.length
+    ? toc
+    : toc.filter((item) => item.id !== "file");
 
   return (
     <>
       <PageIntro
-        eyebrow="Practice"
+        eyebrow="Service"
         title={service.title}
         body={service.longDescription}
-        bodyClassName="text-warm-700 font-medium"
         marks={false}
       />
 
@@ -48,14 +47,14 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
                 </Button>
               </Magnetic>
               <Button href="/services" variant="outline" size="lg">
-                All practices
+                All services
               </Button>
             </div>
           </FadeIn>
         </Container>
       </section>
 
-      <section className="border-t border-warm-200 py-16 lg:py-24">
+      <section className="border-t border-warm-200 py-12 lg:py-16">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12">
             <aside className="hidden lg:col-span-3 lg:block">
@@ -154,33 +153,39 @@ export function ServicePageLayout({ service }: ServicePageLayoutProps) {
                 </ol>
               </div>
 
-              {snapshot && (
+              {snapshots.length > 0 && (
                 <div id="file">
                   <h2 className="font-heading mb-6 text-2xl font-extrabold tracking-tight text-dark">
                     In the field
                   </h2>
-                  <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] lg:p-8">
-                    <div className="brand-gradient-bg absolute inset-x-0 top-0 h-1" />
-                    <p className="text-[11px] font-bold tracking-[0.16em] text-brand-orange uppercase">
-                      {snapshot.industry}
-                    </p>
-                    <h3 className="font-heading mt-2 text-2xl font-extrabold tracking-tight text-warm-800">
-                      {snapshot.title}
-                    </h3>
-                    <p className="mt-1 text-[15px] font-medium text-warm-700">
-                      {snapshot.client}
-                    </p>
-                    <p className="mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-warm-800">
-                      {snapshot.challenge}
-                    </p>
-                    <Link
-                      href={`/projects/${snapshot.slug}`}
-                      className="group mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-orange"
-                    >
-                      Open the file
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </div>
+                  <ul className="space-y-4">
+                    {snapshots.map((snapshot) => (
+                      <li key={snapshot.slug}>
+                        <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] lg:p-8">
+                          <div className="brand-gradient-bg absolute inset-x-0 top-0 h-1" />
+                          <p className="text-[11px] font-bold tracking-[0.16em] text-brand-orange uppercase">
+                            {snapshot.industry}
+                          </p>
+                          <h3 className="font-heading mt-2 text-2xl font-extrabold tracking-tight text-warm-800">
+                            {snapshot.title}
+                          </h3>
+                          <p className="mt-1 text-[15px] font-medium text-warm-700">
+                            {snapshot.client}
+                          </p>
+                          <p className="mt-4 max-w-xl text-[15px] leading-relaxed font-medium text-warm-800">
+                            {snapshot.challenge}
+                          </p>
+                          <Link
+                            href={`/projects/${snapshot.slug}`}
+                            className="group mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-orange"
+                          >
+                            Open the file
+                            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                          </Link>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
             </div>

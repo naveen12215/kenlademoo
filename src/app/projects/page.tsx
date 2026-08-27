@@ -18,14 +18,13 @@ export default function ProjectsPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Cabinet"
-        title={<GradientText>Files</GradientText>}
-        body="Each file opens the same way: the problem, the work, the numbers. FinTech, insurance, healthcare, Web3."
-        bodyClassName="text-[15px] font-medium text-warm-700"
+        eyebrow="Project"
+        title={<GradientText>Projects</GradientText>}
+        body="Each file opens the same way: the problem, the work, the numbers. FinTech, insurance, healthcare, government, Web3, enterprise."
         marks={false}
       />
 
-      <section className="pb-24 lg:pb-32">
+      <section className="pb-14 lg:pb-16">
         <Container>
           <div className="overflow-hidden rounded-xl bg-white shadow-[0_12px_28px_rgba(238,122,72,0.08)]">
             <div className="overflow-x-auto">
@@ -43,7 +42,10 @@ export default function ProjectsPage() {
                   {projects.map((project, index) => (
                     <tr
                       key={project.slug}
-                      className="wash-hover border-t border-warm-100"
+                      className="soft-rise wash-hover border-t border-warm-100"
+                      style={{
+                        ["--rise-delay" as string]: `${Math.min(index, 10) * 0.05}s`,
+                      }}
                     >
                       <td className="px-5 py-5 pr-4">
                         <span className="index-num">

@@ -89,7 +89,7 @@ export default function AboutPage() {
       <StudioHero />
       <StudioStory />
 
-      <section className="py-20 lg:py-28">
+      <section className="py-12 lg:py-16">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -97,7 +97,6 @@ export default function AboutPage() {
               eyebrow="Journey"
               title="Our journey"
               subtitle="Scroll the years. Chennai to four continents."
-              subtitleClassName="text-warm-700"
             />
           </FadeIn>
           <div className="mx-auto max-w-4xl">

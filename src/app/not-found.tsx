@@ -5,8 +5,8 @@ import { CropMarks } from "@/components/ui/CropMarks";
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[70vh] items-center overflow-hidden py-24">
-      <p className="ghost-type absolute top-12 -left-4 text-[40vw] lg:text-[18rem]" aria-hidden="true">
+    <section className="relative flex min-h-[50vh] items-center overflow-hidden py-16">
+      <p className="ghost-type absolute top-12 -left-4 text-[28vw] lg:text-[10rem]" aria-hidden="true">
         404
       </p>
       <Container className="relative">

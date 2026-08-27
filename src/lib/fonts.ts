@@ -1,16 +1,10 @@
-import { Syne, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 
-export const syne = Syne({
+export const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-plus-jakarta",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
-});
-
-export const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
 });
 
 export const plexMono = IBM_Plex_Mono({

@@ -1,7 +1,8 @@
 "use client";
 
 import { technologies as allTechnologies, techCategories } from "@/data/technologies";
-import { techIconMap } from "@/lib/tech-icons";
+import { TechName, TechRow } from "@/components/sections/TechTip";
+import { FadeIn } from "@/components/animations/FadeIn";
 import { techUsedIn } from "@/lib/tech-used-in";
 import type { Technology, TechCategory } from "@/types";
 
@@ -25,8 +26,9 @@ export function TechGridCategorized({
 
   return (
     <div className="space-y-14">
-      {groups.map((group) => (
-        <section key={group.key}>
+      {groups.map((group, groupIndex) => (
+        <FadeIn key={group.key} direction="up" delay={Math.min(groupIndex, 6) * 0.05}>
+        <section>
           <div className="mb-3 flex items-baseline gap-4 border-b border-warm-200 pb-3">
             <span className="index-num">
               {String(group.index + 1).padStart(2, "0")}
@@ -41,28 +43,17 @@ export function TechGridCategorized({
 
           <table className="w-full text-left">
             <tbody>
-              {group.techs.map((tech) => {
-                const iconEntry = techIconMap[tech.icon];
+              {group.techs.map((tech, techIndex) => {
                 const used = techUsedIn(tech.name);
                 return (
-                  <tr key={tech.name} className="wash-hover border-b border-warm-200">
+                  <TechRow
+                    key={tech.name}
+                    tech={tech}
+                    index={techIndex}
+                    className="wash-hover border-b border-warm-200"
+                  >
                     <td className="py-3 pr-4">
-                      <span className="flex items-center gap-2.5">
-                        {iconEntry &&
-                          (() => {
-                            const { icon: Icon, color } = iconEntry;
-                            return (
-                              <Icon
-                                size={20}
-                                className="shrink-0"
-                                style={{ color }}
-                              />
-                            );
-                          })()}
-                        <span className="text-[15px] font-semibold text-warm-800">
-                          {tech.name}
-                        </span>
-                      </span>
+                      <TechName tech={tech} />
                     </td>
                     <td className="hidden py-3 pr-4 text-[13px] font-medium tracking-[0.04em] text-warm-700 uppercase sm:table-cell">
                       {tech.proficiency}
@@ -70,12 +61,13 @@ export function TechGridCategorized({
                     <td className="hidden py-3 text-[13px] font-medium text-warm-700 md:table-cell">
                       {used.length ? used.join(", ") : "Core to how we ship"}
                     </td>
-                  </tr>
+                  </TechRow>
                 );
               })}
             </tbody>
           </table>
         </section>
+        </FadeIn>
       ))}
     </div>
   );

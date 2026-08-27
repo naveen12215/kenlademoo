@@ -23,8 +23,8 @@ function flattenPages(): Hit[] {
     { id: "home", label: "Home", hint: "Start here", href: "/", group: "Pages" },
     {
       id: "/services",
-      label: "Practices",
-      hint: "Services",
+      label: "Services",
+      hint: "What we build",
       href: "/services",
       group: "Pages",
     },
@@ -37,15 +37,15 @@ function flattenPages(): Hit[] {
     },
     {
       id: "/projects",
-      label: "Files",
-      hint: "Projects",
+      label: "Project",
+      hint: "Case files",
       href: "/projects",
       group: "Pages",
     },
     {
       id: "/about",
-      label: "Studio",
-      hint: "About",
+      label: "About",
+      hint: "The studio",
       href: "/about",
       group: "Pages",
     },
@@ -243,7 +243,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                 ref={inputRef}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search practices, files, stack…"
+                placeholder="Search services, projects, stack…"
                 className="h-14 w-full bg-transparent text-base font-medium text-dark placeholder:font-normal placeholder:text-warm-400 focus:outline-none focus-visible:outline-none sm:text-[15px]"
               />
               <kbd className="instrument-kbd hidden sm:inline">ESC</kbd>

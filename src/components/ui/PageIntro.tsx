@@ -21,7 +21,7 @@ export function PageIntro({
   marks = true,
 }: PageIntroProps) {
   return (
-    <section className="relative pt-10 pb-12 lg:pt-14 lg:pb-16">
+    <section className="relative pt-8 pb-8 lg:pt-10 lg:pb-12">
       <Container className="relative">
         {marks && <CropMarks className="hidden sm:block" />}
         {sheet && (
@@ -35,7 +35,7 @@ export function PageIntro({
           <div className="lg:col-span-7">
             <FadeIn direction="up" delay={0.06}>
               <p className="eyebrow mb-4">{eyebrow}</p>
-              <h1 className="text-4xl leading-[1.08] font-extrabold tracking-tight text-dark sm:text-5xl lg:text-[3.6rem]">
+              <h1 className="display-h1 font-extrabold tracking-tight text-dark">
                 {title}
               </h1>
             </FadeIn>
@@ -44,7 +44,7 @@ export function PageIntro({
             <FadeIn delay={0.12}>
               <p
                 className={cn(
-                  "max-w-sm text-base leading-relaxed font-medium text-warm-700 lg:ml-auto",
+                  "max-w-md text-lg leading-relaxed font-medium text-warm-800 lg:ml-auto",
                   bodyClassName
                 )}
               >
@@ -53,7 +53,7 @@ export function PageIntro({
             </FadeIn>
           </div>
         </div>
-        <div className="mt-10 h-px bg-gradient-to-r from-brand-gold via-brand-orange to-transparent lg:mt-14" />
+        <div className="ink-draw mt-8 h-px bg-gradient-to-r from-brand-gold via-brand-orange to-transparent lg:mt-10" />
       </Container>
     </section>
   );

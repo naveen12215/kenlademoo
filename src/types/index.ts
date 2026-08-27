@@ -27,6 +27,7 @@ export interface Technology {
   category: TechCategory;
   proficiency: "expert" | "advanced" | "proficient";
   description: string;
+  usedFor: string;
 }
 
 export interface Project {

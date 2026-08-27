@@ -1,7 +1,10 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { FadeIn } from "@/components/animations/FadeIn";
+import {
+  StaggerChildren,
+  StaggerItem,
+} from "@/components/animations/StaggerChildren";
 import { techIconMap } from "@/lib/tech-icons";
 import { ArrowRight } from "lucide-react";
 
@@ -22,24 +25,22 @@ const highlightedTech = [
 
 export function TechHighlights() {
   return (
-    <section className="bg-warm-100/70 py-20 lg:py-28">
+    <section className="bg-warm-100/70 py-12 lg:py-16">
       <Container>
         <SectionHeading
           index="05"
           eyebrow="Stack"
           title="Fifty-four tools we actually ship with."
           subtitle="Not a wall of logos. A working set — from frontend to chain."
-          subtitleClassName="text-warm-700"
         />
 
-        <FadeIn>
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        <StaggerChildren className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4" staggerDelay={0.045}>
             {highlightedTech.map((tech, index) => {
               const entry = techIconMap[tech.icon];
               return (
+                <StaggerItem key={tech.name}>
                 <li
-                  key={tech.name}
-                  className="group relative overflow-hidden rounded-xl bg-white px-5 py-7 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-300 hover:-translate-y-0.5"
+                  className="group relative overflow-hidden rounded-xl bg-white px-5 py-7 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-500 hover:-translate-y-0.5"
                 >
                   <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
                   <div className="mb-4 flex items-center justify-between">
@@ -63,10 +64,10 @@ export function TechHighlights() {
                     {tech.name}
                   </p>
                 </li>
+                </StaggerItem>
               );
             })}
-          </ul>
-        </FadeIn>
+        </StaggerChildren>
 
         <div className="mt-10">
           <Button href="/technologies" size="md">

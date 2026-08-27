@@ -11,7 +11,7 @@ interface MagneticProps {
 
 export function Magnetic({
   children,
-  strength = 0.28,
+  strength = 0.16,
   className,
 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ export function Magnetic({
       ref={ref}
       className={className ? `inline-block ${className}` : "inline-block"}
       animate={{ x: offset.x, y: offset.y }}
-      transition={{ type: "spring", stiffness: 260, damping: 18, mass: 0.35 }}
+      transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.45 }}
       onMouseMove={(event) => {
         const node = ref.current;
         if (!node || window.matchMedia("(pointer: coarse)").matches) return;

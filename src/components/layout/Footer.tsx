@@ -6,20 +6,20 @@ import {
 } from "@/lib/constants";
 
 const colophon = [
-  { label: "Practices", href: "/services" },
+  { label: "Services", href: "/services" },
   { label: "Stack", href: "/technologies" },
-  { label: "Files", href: "/projects" },
-  { label: "Studio", href: "/about" },
+  { label: "Project", href: "/projects" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export function Footer() {
   return (
     <footer
-      className="border-t border-warm-200 lg:pl-24"
+      className="border-t border-warm-200 lg:pl-[var(--chrome-spine)]"
       role="contentinfo"
     >
-      <div className="flex flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+      <div className="flex flex-col gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
         <p className="text-sm font-semibold tracking-wide text-warm-700">
           © {new Date().getFullYear()} {COMPANY_NAME}
           <span className="mx-2 font-medium text-warm-400">·</span>
@@ -48,6 +48,9 @@ export function Footer() {
             {link.label}
           </Link>
         ))}
+        <span className="ml-auto text-[12px] font-medium tracking-wide text-warm-500">
+          ⌘K search · ` console
+        </span>
       </div>
     </footer>
   );

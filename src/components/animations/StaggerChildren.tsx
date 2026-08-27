@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { motionDuration, motionEase, motionRise, motionStagger } from "@/lib/motion";
 
 interface StaggerChildrenProps {
   children: React.ReactNode;
@@ -12,13 +13,19 @@ interface StaggerChildrenProps {
 export function StaggerChildren({
   children,
   className,
-  staggerDelay = 0.08,
+  staggerDelay = motionStagger,
 }: StaggerChildrenProps) {
+  const reduced = useReducedMotion();
+
+  if (reduced) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.12 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={{
         hidden: {},
         visible: {
@@ -44,11 +51,11 @@ export function StaggerItem({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 12 },
+        hidden: { opacity: 0, y: motionRise },
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+          transition: { duration: motionDuration, ease: motionEase },
         },
       }}
       className={cn(className)}
