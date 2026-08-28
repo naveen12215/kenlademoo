@@ -64,10 +64,10 @@ export function Header({ onSearch }: HeaderProps) {
             </button>
             <Link
               href="/contact"
-              className="brand-gradient-bg btn-sheen hidden items-center gap-1 overflow-hidden rounded-md px-4 py-2 text-[14px] font-bold text-white shadow-sm sm:inline-flex"
+              className="brand-gradient-bg btn-sheen group hidden items-center gap-1 overflow-hidden rounded-md px-4 py-2 text-[14px] font-bold text-white shadow-sm sm:inline-flex"
             >
               Contact
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
         </nav>

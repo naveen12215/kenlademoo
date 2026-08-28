@@ -40,7 +40,7 @@ export function TechHighlights() {
               return (
                 <StaggerItem key={tech.name}>
                 <li
-                  className="group relative overflow-hidden rounded-xl bg-white px-5 py-7 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-500 hover:-translate-y-0.5"
+                  className="group relative overflow-hidden rounded-xl bg-white px-5 py-7 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(238,122,72,0.14)]"
                 >
                   <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
                   <div className="mb-4 flex items-center justify-between">
@@ -53,7 +53,7 @@ export function TechHighlights() {
                         return (
                           <Icon
                             size={28}
-                            className="shrink-0"
+                            className="shrink-0 transition-transform duration-300 group-hover:scale-110"
                             style={{ color }}
                             aria-hidden="true"
                           />

@@ -55,7 +55,7 @@ export function WhyKenla() {
         <StaggerChildren className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {points.map((item, index) => (
             <StaggerItem key={item.title}>
-              <div className="studio-value group relative h-full overflow-hidden rounded-xl bg-white p-8 shadow-[0_12px_28px_rgba(238,122,72,0.08)] md:p-10">
+              <div className="studio-value group relative h-full overflow-hidden rounded-xl bg-white p-8 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(238,122,72,0.14)] md:p-10">
                 <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
                 <p className="index-num mb-6">
                   {String(index + 1).padStart(2, "0")}

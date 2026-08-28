@@ -222,7 +222,7 @@ export function LogoIntro() {
             />
 
             {/* SYSTEMS — mono, airy tracking */}
-            <p className="font-mono text-[0.58rem] font-medium tracking-[0.52em] text-warm-400 uppercase">
+            <p className="font-mono text-[0.68rem] font-semibold tracking-[0.46em] text-warm-600 uppercase">
               Systems
             </p>
           </motion.div>

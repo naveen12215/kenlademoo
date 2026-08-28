@@ -19,8 +19,8 @@ export function ServiceRail({
       {services.map((item, index) => {
         const isActive = item.slug === activeSlug;
         const className = cn(
-          "service-pop relative flex shrink-0 items-center gap-3 rounded-lg px-2.5 py-4 text-left lg:w-full lg:py-3.5",
-          isActive ? "z-10 text-white" : "text-warm-700"
+          "service-pop relative flex shrink-0 items-center gap-3 rounded-lg px-2.5 py-4 text-left lg:w-full lg:py-3.5 transition-colors duration-200",
+          isActive ? "z-10 text-white" : "text-warm-700 hover:text-dark hover:bg-warm-200/50"
         );
         const inner = (
           <>
