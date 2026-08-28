@@ -363,7 +363,7 @@ export function ContactForm() {
                     <div>
                       <p className="eyebrow mb-2">Intake</p>
                       <p className="font-heading text-xl font-extrabold tracking-tight text-dark">
-                        Send it over
+                        Contact Us
                       </p>
                     </div>
                     <p className="font-mono text-[11px] font-semibold tracking-[0.14em] text-brand-orange uppercase">
@@ -510,7 +510,7 @@ export function ContactForm() {
                             Sending…
                           </>
                         ) : (
-                          "Send it over"
+                          "Contact Us"
                         )}
                       </Button>
                     </Magnetic>

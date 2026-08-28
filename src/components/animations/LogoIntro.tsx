@@ -175,6 +175,57 @@ export function LogoIntro() {
               />
             </motion.g>
           </svg>
+
+          {/* Company name — fades and rises in after the logo mark appears */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 1.9, ease: motionEase }}
+            className="mt-8 flex flex-col items-center"
+            aria-hidden="true"
+          >
+            {/* KENLA — SVG text so we can fill with the brand gradient */}
+            <svg
+              viewBox="0 0 220 42"
+              width="220"
+              height="42"
+              xmlns="http://www.w3.org/2000/svg"
+              overflow="visible"
+            >
+              <defs>
+                <linearGradient id="name-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%"   stopColor="#f6ba29" />
+                  <stop offset="40%"  stopColor="#ee7a48" />
+                  <stop offset="100%" stopColor="#e95559" />
+                </linearGradient>
+              </defs>
+              <text
+                x="50%"
+                y="34"
+                textAnchor="middle"
+                fill="url(#name-grad)"
+                fontFamily="var(--font-plus-jakarta), ui-sans-serif, sans-serif"
+                fontSize="36"
+                fontWeight="800"
+                letterSpacing="10"
+              >
+                KENLA
+              </text>
+            </svg>
+
+            {/* Thin gradient divider */}
+            <motion.span
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.5, delay: 2.3, ease: motionEase }}
+              className="my-3 block h-px w-12 origin-left brand-gradient-bg opacity-70"
+            />
+
+            {/* SYSTEMS — mono, airy tracking */}
+            <p className="font-mono text-[0.58rem] font-medium tracking-[0.52em] text-warm-400 uppercase">
+              Systems
+            </p>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

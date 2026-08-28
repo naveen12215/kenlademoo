@@ -5,11 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function decodeSlug(slug: string) {
-  if (typeof slug !== "string") return "";
+export function decodeSlug(slug: string): string | null {
+  if (typeof slug !== "string" || slug.trim() === "") return null;
   try {
-    return decodeURIComponent(slug).trim();
+    const decoded = decodeURIComponent(slug).trim();
+    return decoded === "" ? null : decoded;
   } catch {
-    return slug.trim();
+    const fallback = slug.trim();
+    return fallback === "" ? null : fallback;
   }
 }

@@ -4,6 +4,11 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/animations/FadeIn";
+import {
+  StaggerChildren,
+  StaggerItem,
+} from "@/components/animations/StaggerChildren";
+import { Magnetic } from "@/components/animations/Magnetic";
 import { CtaBand } from "@/components/sections/CtaBand";
 import Link from "next/link";
 import { getProject, projects } from "@/data/projects";
@@ -59,13 +64,17 @@ export default async function ProjectPage({ params }: PageProps) {
           { name: project.title, path: `/projects/${project.slug}` },
         ])}
       />
+
+      {/* ── Hero ── */}
       <section className="pt-10 pb-12 lg:pt-14 lg:pb-16">
         <Container>
           <FadeIn>
-            <Button href="/projects" variant="outline" size="sm">
-              <ArrowLeft className="h-3.5 w-3.5" />
-              All projects
-            </Button>
+            <Magnetic strength={0.14}>
+              <Button href="/projects" variant="outline" size="sm">
+                <ArrowLeft className="h-3.5 w-3.5" />
+                All projects
+              </Button>
+            </Magnetic>
           </FadeIn>
           <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
@@ -108,9 +117,11 @@ export default async function ProjectPage({ params }: PageProps) {
         </Container>
       </section>
 
+      {/* ── Body ── */}
       <section className="pb-20 lg:pb-28">
         <Container>
           <div className="grid gap-10 lg:grid-cols-12">
+            {/* Left column */}
             <div className="space-y-8 lg:col-span-7">
               <FadeIn>
                 <FileBlock label="The challenge" body={project.challenge} />
@@ -119,7 +130,8 @@ export default async function ProjectPage({ params }: PageProps) {
                 <FileBlock label="Our solution" body={project.solution} />
               </FadeIn>
               <FadeIn>
-                <div className="rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] lg:p-8">
+                <div className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-300 hover:-translate-y-0.5 lg:p-8">
+                  <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
                   <h2 className="font-heading mb-5 text-xl font-extrabold tracking-tight text-dark">
                     Technologies used
                   </h2>
@@ -129,7 +141,7 @@ export default async function ProjectPage({ params }: PageProps) {
                       return (
                         <li
                           key={tech}
-                          className="flex items-center gap-2 rounded-md bg-warm-50 px-3 py-2"
+                          className="flex items-center gap-2 rounded-md bg-warm-50 px-3 py-2 transition-colors duration-200 hover:bg-warm-100"
                         >
                           {entry &&
                             (() => {
@@ -154,9 +166,11 @@ export default async function ProjectPage({ params }: PageProps) {
               </FadeIn>
             </div>
 
+            {/* Right sidebar */}
             <div className="lg:col-span-4 lg:col-start-9">
               <FadeIn>
-                <div className="rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] lg:p-8">
+                <div className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-300 hover:-translate-y-0.5 lg:p-8">
+                  <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
                   <h2 className="font-heading mb-5 text-xl font-extrabold tracking-tight text-dark">
                     Results
                   </h2>
@@ -191,35 +205,45 @@ export default async function ProjectPage({ params }: PageProps) {
         </Container>
       </section>
 
+      {/* ── Related projects ── */}
       {related.length > 0 && (
         <section className="border-t border-warm-200 py-12 lg:py-16">
           <Container>
-            <h2 className="font-heading mb-8 text-2xl font-extrabold tracking-tight text-dark">
-              More projects
-            </h2>
-            <ul className="grid gap-4 sm:grid-cols-2">
-              {related.map((item) => (
-                <li key={item.slug}>
-                  <div className="flex h-full flex-col rounded-xl bg-white p-6 shadow-[0_10px_24px_rgba(238,122,72,0.08)]">
-                    <p className="text-[12px] font-bold tracking-[0.14em] text-brand-orange uppercase">
-                      {item.industry}
-                    </p>
-                    <p className="font-heading mt-2 text-xl font-bold text-warm-800">
-                      {item.title}
-                    </p>
-                    <p className="mt-1 text-[15px] font-medium text-warm-700">
-                      {item.client}
-                    </p>
-                    <div className="mt-5">
-                      <Button href={`/projects/${item.slug}`} size="sm">
-                        Open
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </Button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <FadeIn>
+              <h2 className="font-heading mb-8 text-2xl font-extrabold tracking-tight text-dark">
+                More projects
+              </h2>
+            </FadeIn>
+            <StaggerChildren>
+              <ul className="grid gap-4 sm:grid-cols-2">
+                {related.map((item) => (
+                  <StaggerItem key={item.slug}>
+                    <li>
+                      <div className="group relative flex h-full flex-col overflow-hidden rounded-xl bg-white p-6 shadow-[0_10px_24px_rgba(238,122,72,0.08)] transition-transform duration-300 hover:-translate-y-0.5">
+                        <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
+                        <p className="text-[12px] font-bold tracking-[0.14em] text-brand-orange uppercase">
+                          {item.industry}
+                        </p>
+                        <p className="font-heading mt-2 text-xl font-bold text-warm-800">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 text-[15px] font-medium text-warm-700">
+                          {item.client}
+                        </p>
+                        <div className="mt-5">
+                          <Magnetic strength={0.14}>
+                            <Button href={`/projects/${item.slug}`} size="sm">
+                              Open
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </Button>
+                          </Magnetic>
+                        </div>
+                      </div>
+                    </li>
+                  </StaggerItem>
+                ))}
+              </ul>
+            </StaggerChildren>
           </Container>
         </section>
       )}
@@ -234,7 +258,8 @@ export default async function ProjectPage({ params }: PageProps) {
 
 function FileBlock({ label, body }: { label: string; body: string }) {
   return (
-    <div className="rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] lg:p-8">
+    <div className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-300 hover:-translate-y-0.5 lg:p-8">
+      <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
       <h2 className="font-heading mb-4 text-xl font-extrabold tracking-tight text-dark">
         {label}
       </h2>

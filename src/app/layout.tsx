@@ -23,6 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${plexMono.variable}`} suppressHydrationWarning>
       <body className="font-body antialiased" suppressHydrationWarning>
+        {/* Skip-to-content for keyboard / screen-reader users */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-dark focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-orange"
+        >
+          Skip to main content
+        </a>
         <JsonLd data={organizationJsonLd()} />
         <SiteChrome>
           <main
