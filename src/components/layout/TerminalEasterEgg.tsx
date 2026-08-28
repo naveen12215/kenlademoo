@@ -8,12 +8,12 @@ const PROMPT = "kenla ~";
 
 const replies: Record<string, string> = {
   help: "whoami · stack · contact · projects · clear",
-  whoami: `${COMPANY_NAME} — software engineering partner since ${COMPANY_FOUNDED}. Chennai HQ, California presence. We take the brief and ship the product.`,
+  whoami: `${COMPANY_NAME} — custom software services since ${COMPANY_FOUNDED}. Chennai engineering. Delivery for the United States, India, and the Middle East.`,
   stack:
-    "custom software · AI/ML · cloud & DevOps · blockchain. End to end: architecture, build, ship, run.",
-  contact: `Write to ${COMPANY_EMAIL} — a human replies within a business day.`,
+    "custom software · public sector · generative AI · healthcare · cloud, mobile, blockchain.",
+  contact: `Venkat Munsif · +91 95000 62603 · venkatm@kenlasystems.com · ${COMPANY_EMAIL}`,
   projects:
-    "FinTech trading · insurance document AI · DeFi vaults · healthcare portal. Type `open projects` to go look.",
+    "LMA · Field Information System · IPOR/IV&V · Insight 360 · Annie ACS · Saguaro Health. Type `open projects` to go look.",
 };
 
 interface TerminalEasterEggProps {

@@ -9,7 +9,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { LineReveal } from "@/components/animations/LineReveal";
 import { Magnetic } from "@/components/animations/Magnetic";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
-import { COMPANY_TAGLINE, COMPANY_FOUNDED, companyStats } from "@/lib/constants";
+import { COMPANY_FOUNDED, companyStats } from "@/lib/constants";
 import { HeroDust } from "@/components/animations/HeroDust";
 import { CropMarks } from "@/components/ui/CropMarks";
 import { ArrowRight } from "lucide-react";
@@ -73,11 +73,12 @@ export function Hero() {
 
             <FadeIn direction="up" delay={0.5}>
               <h1 className="mt-5 max-w-lg font-heading text-lg font-extrabold tracking-tight text-dark">
-                We build software that moves business forward.
+                Production systems — not a packaged product.
               </h1>
               <p className="mt-3 max-w-lg text-base leading-relaxed font-medium text-warm-800">
-                {COMPANY_TAGLINE}. Custom platforms, AI, cloud, and blockchain —
-                designed, built, and run by one team.
+                We design, build, and support internet, mobile, and enterprise
+                applications for government, healthcare, and commercial
+                organizations in the United States, India, and the Middle East.
               </p>
             </FadeIn>
 
@@ -117,15 +118,13 @@ export function Hero() {
                 </div>
                 <div className="relative mb-1 h-px bg-warm-100" />
                 <ol className="relative">
-                  {companyStats.map((stat, index) => (
-                    <li
-                      key={stat.label}
-                      className="flex items-baseline gap-2.5 border-b border-warm-100 py-3.5 last:border-b-0"
-                    >
+                  {companyStats.map((stat, index) => {
+                    const row = (
+                      <>
                       <span className="index-num w-6 shrink-0">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span className="min-w-0 text-[14px] font-semibold text-warm-800">
+                      <span className="min-w-0 text-[14px] font-semibold text-warm-800 transition-colors group-hover:text-brand-orange">
                         {stat.label}
                       </span>
                       <span className="spec-leader" aria-hidden="true" />
@@ -137,12 +136,33 @@ export function Hero() {
                           className="brand-gradient-text"
                         />
                       </span>
+                      </>
+                    );
+                    const isStrengths = stat.label === "Areas of strength";
+                    return (
+                    <li
+                      key={stat.label}
+                      className="border-b border-warm-100 last:border-b-0"
+                    >
+                      {isStrengths ? (
+                        <a
+                          href="#areas-of-strength"
+                          className="group flex items-baseline gap-2.5 py-3.5"
+                        >
+                          {row}
+                        </a>
+                      ) : (
+                        <div className="flex items-baseline gap-2.5 py-3.5">
+                          {row}
+                        </div>
+                      )}
                     </li>
-                  ))}
+                    );
+                  })}
                 </ol>
                 <div className="relative mt-5 flex items-center justify-between gap-3">
                   <p className="text-[12px] font-semibold tracking-[0.18em] text-brand-orange uppercase">
-                    Chennai · California
+                    Chennai · US · Middle East
                   </p>
                   <span
                     className="brand-gradient-bg h-1.5 w-1.5 shrink-0 rounded-full"

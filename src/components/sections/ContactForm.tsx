@@ -21,10 +21,19 @@ import {
 } from "@/actions/contact";
 import { Loader2 } from "lucide-react";
 import {
+  COMPANY_ADDRESS_LINES,
+  COMPANY_CONTACT_NAME,
   COMPANY_EMAIL,
   COMPANY_FOUNDED,
-  COMPANY_LOCATION,
+  COMPANY_LEGAL_NAME,
+  COMPANY_PHONE,
+  COMPANY_REACH_EMAIL,
+  COMPANY_WEB,
 } from "@/lib/constants";
+import {
+  StaggerChildren,
+  StaggerItem,
+} from "@/components/animations/StaggerChildren";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(80),
@@ -45,9 +54,9 @@ const initialState: ContactFormState = {
 };
 
 const promises = [
-  { index: "01", label: "Reply in 24 hours" },
-  { index: "02", label: "Chennai · California" },
-  { index: "03", label: "A human on the note" },
+  { index: "01", label: "Adyar, Chennai" },
+  { index: "02", label: COMPANY_CONTACT_NAME },
+  { index: "03", label: `Since ${COMPANY_FOUNDED}` },
 ];
 
 export function ContactForm() {
@@ -117,7 +126,19 @@ export function ContactForm() {
             <p className="index-num mb-1">01</p>
             <dt className="text-[13px] font-semibold text-warm-700">To</dt>
             <dd className="mt-1 text-[15px] font-medium text-warm-800">
-              {COMPANY_EMAIL}
+              <a
+                href={`mailto:${COMPANY_EMAIL}`}
+                className="hover:text-brand-orange"
+              >
+                {COMPANY_EMAIL}
+              </a>
+              {" · "}
+              <a
+                href={`mailto:${COMPANY_REACH_EMAIL}`}
+                className="hover:text-brand-orange"
+              >
+                {COMPANY_REACH_EMAIL}
+              </a>
             </dd>
           </div>
           <div>
@@ -145,24 +166,32 @@ export function ContactForm() {
           </div>
         </dl>
         <div className="mt-8 border-t border-warm-100 pt-5">
-          <p className="text-[13px] font-semibold text-warm-700">Desk</p>
-          <p className="mt-1 text-[15px] font-medium text-warm-800">
-            {COMPANY_LOCATION} · California
+          <p className="text-[13px] font-semibold text-warm-700">Reach us</p>
+          <p className="mt-1 text-[15px] font-medium text-dark">
+            {COMPANY_CONTACT_NAME}
           </p>
-          <p className="mt-3 text-[13px] font-semibold text-warm-700">
-            Response time
-          </p>
-          <p className="mt-1 text-[15px] font-medium text-warm-800">
-            Within 24 hours
-          </p>
-          <p className="mt-5 text-[15px] leading-relaxed font-medium text-warm-800">
-            Prefer email?{" "}
-            <a
-              href={`mailto:${COMPANY_EMAIL}`}
-              className="font-semibold text-brand-orange hover:text-brand-coral"
-            >
-              {COMPANY_EMAIL}
-            </a>
+          <a
+            href={`tel:${COMPANY_PHONE.replace(/\s/g, "")}`}
+            className="mt-1 block text-[15px] font-medium text-warm-800 hover:text-brand-orange"
+          >
+            {COMPANY_PHONE}
+          </a>
+          <a
+            href={`mailto:${COMPANY_REACH_EMAIL}`}
+            className="mt-1 block text-[15px] font-semibold text-brand-orange hover:text-brand-coral"
+          >
+            {COMPANY_REACH_EMAIL}
+          </a>
+          <a
+            href={`https://${COMPANY_WEB}`}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-1 block text-[15px] font-medium text-warm-800 hover:text-brand-orange"
+          >
+            {COMPANY_WEB}
+          </a>
+          <p className="mt-4 text-[13px] font-medium text-warm-700">
+            Notes through this form go to {COMPANY_EMAIL} and {COMPANY_REACH_EMAIL}.
           </p>
         </div>
       </div>
@@ -179,15 +208,15 @@ export function ContactForm() {
           </FadeIn>
           <FadeIn direction="up" delay={0.06}>
             <h1 className="display-h1 max-w-3xl font-extrabold tracking-tight text-dark">
-              Let&apos;s Build Something{" "}
-              <GradientText shimmer>Great</GradientText>
+              For new work and{" "}
+              <GradientText shimmer>partnerships</GradientText>
             </h1>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed font-medium text-warm-800">
-              Whether you have a detailed specification or just a spark of an
-              idea, our team is ready to help. We bring over 15 years of
-              software engineering experience to every conversation.
+            <p className="mt-5 max-w-xl text-lg leading-relaxed font-medium text-dark">
+              For new work and partnerships. Primary engineering office in
+              Adyar, Chennai — we deliver to the United States, India, and the
+              Middle East.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -206,6 +235,95 @@ export function ContactForm() {
             </ul>
           </FadeIn>
           <div className="ink-draw mt-8 h-px max-w-xl bg-gradient-to-r from-brand-gold via-brand-orange to-transparent lg:mt-10" />
+        </Container>
+      </section>
+
+      <section className="pb-10 lg:pb-12">
+        <Container>
+          <StaggerChildren className="grid gap-4 md:grid-cols-2">
+            <StaggerItem>
+              <article className="studio-value group relative h-full overflow-hidden rounded-xl bg-white p-6 shadow-[0_18px_40px_rgba(238,122,72,0.1)] md:p-8">
+                <div className="brand-gradient-bg absolute inset-x-0 top-0 h-1" />
+                <p className="ghost-type pointer-events-none absolute -top-3 right-3 text-[5rem]">
+                  01
+                </p>
+                <p className="index-num mb-4">01</p>
+                <p className="eyebrow mb-3">Office</p>
+                <h2 className="font-heading text-2xl font-extrabold tracking-tight text-dark">
+                  Chennai
+                </h2>
+                <address className="mt-4 not-italic text-[17px] leading-relaxed font-semibold text-dark">
+                  {COMPANY_ADDRESS_LINES.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </address>
+                <p className="mt-6 text-[13px] font-semibold tracking-[0.14em] text-brand-orange uppercase">
+                  {COMPANY_LEGAL_NAME}
+                </p>
+              </article>
+            </StaggerItem>
+            <StaggerItem>
+              <article className="studio-value group relative h-full overflow-hidden rounded-xl bg-white p-6 shadow-[0_18px_40px_rgba(238,122,72,0.1)] md:p-8">
+                <div className="brand-gradient-bg absolute inset-x-0 top-0 h-1" />
+                <p className="ghost-type pointer-events-none absolute -top-3 right-3 text-[5rem]">
+                  02
+                </p>
+                <p className="index-num mb-4">02</p>
+                <p className="eyebrow mb-3">Reach us</p>
+                <h2 className="font-heading text-2xl font-extrabold tracking-tight text-dark">
+                  {COMPANY_CONTACT_NAME}
+                </h2>
+                <dl className="mt-4 space-y-4 text-[17px] font-semibold text-dark">
+                  <div>
+                    <dt className="text-[13px] font-semibold tracking-[0.12em] text-warm-700 uppercase">
+                      Mobile
+                    </dt>
+                    <dd className="mt-1">
+                      <a
+                        href={`tel:${COMPANY_PHONE.replace(/\s/g, "")}`}
+                        className="hover:text-brand-orange"
+                      >
+                        {COMPANY_PHONE}
+                      </a>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-[13px] font-semibold tracking-[0.12em] text-warm-700 uppercase">
+                      Email
+                    </dt>
+                    <dd className="mt-1">
+                      <a
+                        href={`mailto:${COMPANY_REACH_EMAIL}`}
+                        className="text-brand-orange hover:text-brand-coral"
+                      >
+                        {COMPANY_REACH_EMAIL}
+                      </a>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-[13px] font-semibold tracking-[0.12em] text-warm-700 uppercase">
+                      Web
+                    </dt>
+                    <dd className="mt-1">
+                      <a
+                        href={`https://${COMPANY_WEB}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:text-brand-orange"
+                      >
+                        {COMPANY_WEB}
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
+                <p className="mt-6 text-[13px] font-semibold tracking-[0.14em] text-brand-orange uppercase">
+                  Software engineering since {COMPANY_FOUNDED}
+                </p>
+              </article>
+            </StaggerItem>
+          </StaggerChildren>
         </Container>
       </section>
 

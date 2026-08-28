@@ -10,7 +10,7 @@ import { canonicalFor } from "@/lib/metadata";
 export const metadata: Metadata = {
   title: "Stack",
   description:
-    "Explore Kenla Systems' full technology stack — from React and Node.js to TensorFlow, Solidity, and Kubernetes.",
+    "The Kenla Systems production stack from the company profile: generative AI, frontend, backend, mobile, cloud, data, blockchain, and DevOps.",
   ...canonicalFor("/technologies"),
 };
 
@@ -20,7 +20,7 @@ export default function TechnologiesPage() {
       <PageIntro
         eyebrow="Materials"
         title={<GradientText>Stack</GradientText>}
-        body="Search, filter, and see where each tool has shipped. Fifty-four technologies we actually run in production."
+        body="We choose tools that fit the problem. The stack below is what we use in production today — every tool listed in the Kenla company profile."
         marks={false}
       />
 

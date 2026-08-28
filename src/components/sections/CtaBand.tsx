@@ -14,7 +14,7 @@ interface CtaBandProps {
 
 export function CtaBand({
   title = "Ready when you are.",
-  body = "Bring a spec, a sketch, or a problem that has been sitting in a backlog. We take it end to end.",
+  body = "The brief can be a statewide operations platform, an AI workflow over documents, a patient-facing lab system, or a mobile approval tool.",
   variant = "quiet",
 }: CtaBandProps) {
   const isGradient = variant === "gradient";

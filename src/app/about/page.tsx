@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn } from "@/components/animations/FadeIn";
+import {
+  StaggerChildren,
+  StaggerItem,
+} from "@/components/animations/StaggerChildren";
 import { Timeline } from "@/components/about/Timeline";
 import { StudioHero } from "@/components/about/StudioHero";
 import { StudioStory } from "@/components/about/StudioStory";
@@ -9,11 +13,12 @@ import { StudioValues } from "@/components/about/StudioValues";
 import { StudioStats } from "@/components/about/StudioStats";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { canonicalFor } from "@/lib/metadata";
+import { COMPANY_MISSION, COMPANY_VISION } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn the story behind Kenla Systems — founded in 2009 in Chennai, India, we have grown from a small team into a trusted technology partner delivering custom software, AI/ML, cloud, and blockchain solutions to clients worldwide.",
+    "KENLA Systems is a custom software services company founded in 2009 in Chennai. We design, build, and support production systems for government, healthcare, and commercial organizations in the United States, India, and the Middle East.",
   ...canonicalFor("/about"),
 };
 
@@ -22,66 +27,58 @@ const timelineEvents = [
     year: "2009",
     title: "Founded in Chennai",
     description:
-      "Kenla Systems was born with a simple mission: build reliable, high-quality software. Starting with a small team of three engineers, we set out to prove that world-class engineering could come from India.",
+      "KENLA Systems was founded by two software engineers, each with more than twenty years of development experience. Software engineering since 2009.",
   },
   {
-    year: "2012",
-    title: "First Enterprise Client",
+    year: "Then",
+    title: "Founders and investors",
     description:
-      "Landed our first major enterprise engagement, delivering a large-scale inventory management platform. This milestone validated our approach and fueled rapid team growth.",
+      "The company has attracted additional investors. Collectively they bring entrepreneurial experience from Rand Software Corporation, Intelle Engineers, Staytop Systems, and RAN Solutions — software, semiconductors, manufacturing, and general business.",
   },
   {
-    year: "2015",
-    title: "50+ Projects Milestone",
+    year: "HQ",
+    title: "Engineering in Chennai",
     description:
-      "Crossed fifty successfully delivered projects spanning fintech, healthcare, logistics, and e-commerce. Established Optiwise as our client-facing entity in California to better serve North American clients.",
+      "Primary engineering office in Adyar, Chennai. Web and mobile, generative AI and enterprise applications, cloud and DevOps, blockchain and Web3, technology research, and new market development.",
   },
   {
-    year: "2018",
-    title: "AI/ML Practice Launched",
+    year: "Now",
+    title: "Regional presence, global service",
     description:
-      "Recognizing the transformative power of artificial intelligence, we built a dedicated AI/ML practice — hiring data scientists and investing in TensorFlow, PyTorch, and computer vision capabilities.",
-  },
-  {
-    year: "2020",
-    title: "Blockchain Practice Added",
-    description:
-      "Expanded into blockchain and Web3 development, delivering smart contracts, DeFi protocols, and tokenization platforms for forward-thinking clients across the globe.",
-  },
-  {
-    year: "2022",
-    title: "200+ Projects Delivered",
-    description:
-      "Surpassed two hundred projects with a 95%+ client satisfaction rate. Grew to serve clients across four continents, reinforcing our reputation for quality and reliability.",
-  },
-  {
-    year: "2024",
-    title: "Expanding Cloud & DevOps",
-    description:
-      "Deepened our cloud-native and DevOps practice with advanced Kubernetes orchestration, infrastructure-as-code, and multi-cloud strategies — helping clients scale with confidence.",
+      "We deliver from India to clients in the United States, the Middle East, and India. Custom systems — not templates — for public sector, healthcare, and commercial organizations.",
   },
 ];
 
 const coreValues = [
   {
-    title: "Innovation",
+    title: "Technical knowledge",
     description:
-      "We stay ahead of the curve, continuously exploring emerging technologies and creative solutions. Innovation is not an afterthought — it is embedded in how we think, design, and build.",
+      "Practiced engineering across web, mobile, AI, cloud, and blockchain — not a single-stack shop.",
   },
   {
-    title: "Quality",
+    title: "Customer relationships",
     description:
-      "Every line of code we write is held to the highest standard. Rigorous testing, thorough code reviews, and battle-tested architectures ensure that what we ship is built to last.",
+      "Direct, durable working relationships. We stay close to the problem after the first release.",
   },
   {
-    title: "Reliability",
+    title: "Custom systems, not templates",
     description:
-      "Deadlines are commitments, not suggestions. Over fifteen years of consistent delivery has made reliability our hallmark — our clients trust us because we have earned it, project after project.",
+      "Applications built to the client’s process and constraints — not a generic package with a logo swap.",
   },
   {
-    title: "Partnership",
+    title: "Regional presence, global service",
     description:
-      "We do not just write code for clients; we become an extension of their team. Deep collaboration, transparent communication, and shared ownership drive the best outcomes.",
+      "Chennai engineering with delivery experience for U.S., Indian, and Middle Eastern clients.",
+  },
+  {
+    title: "Delivery quality",
+    description:
+      "Testing, review, and operational discipline treated as part of the engagement, not an afterthought.",
+  },
+  {
+    title: "In-house talent training",
+    description:
+      "We grow engineers internally so the team that starts a system can still own it years later.",
   },
 ];
 
@@ -89,6 +86,46 @@ export default function AboutPage() {
   return (
     <>
       <StudioHero />
+
+      <section className="border-t border-warm-200 py-12 lg:py-16">
+        <Container>
+          <FadeIn>
+            <SectionHeading
+              index="00"
+              eyebrow="Vision & mission"
+              title="What we aim for"
+              subtitle="From the Kenla company profile."
+            />
+          </FadeIn>
+          <StaggerChildren className="grid gap-4 md:grid-cols-2">
+            <StaggerItem>
+              <article className="group relative h-full overflow-hidden rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-300 hover:-translate-y-0.5 md:p-8">
+                <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
+                <p className="index-num mb-4">01</p>
+                <h2 className="font-heading text-2xl font-extrabold tracking-tight text-dark">
+                  Vision
+                </h2>
+                <p className="mt-3 text-[15px] leading-relaxed font-medium text-warm-800 md:text-[17px]">
+                  {COMPANY_VISION}
+                </p>
+              </article>
+            </StaggerItem>
+            <StaggerItem>
+              <article className="group relative h-full overflow-hidden rounded-xl bg-white p-6 shadow-[0_12px_28px_rgba(238,122,72,0.08)] transition-transform duration-300 hover:-translate-y-0.5 md:p-8">
+                <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
+                <p className="index-num mb-4">02</p>
+                <h2 className="font-heading text-2xl font-extrabold tracking-tight text-dark">
+                  Mission
+                </h2>
+                <p className="mt-3 text-[15px] leading-relaxed font-medium text-warm-800 md:text-[17px]">
+                  {COMPANY_MISSION}
+                </p>
+              </article>
+            </StaggerItem>
+          </StaggerChildren>
+        </Container>
+      </section>
+
       <StudioStory />
 
       <section className="py-12 lg:py-16">
@@ -97,8 +134,8 @@ export default function AboutPage() {
             <SectionHeading
               index="02"
               eyebrow="Journey"
-              title="Our journey"
-              subtitle="Scroll the years. Chennai to four continents."
+              title="The company"
+              subtitle="Founded in Chennai. Delivery for the United States, India, and the Middle East."
             />
           </FadeIn>
           <div className="mx-auto max-w-4xl">
@@ -112,7 +149,7 @@ export default function AboutPage() {
 
       <CtaBand
         title="Let's work together"
-        body="Bring the brief as it stands. Fifteen years of shipping — one conversation at a time."
+        body="We take ownership of the problem, choose the stack that fits, and stay accountable through launch and after."
       />
     </>
   );

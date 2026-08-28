@@ -27,9 +27,9 @@ export default function TermsPage() {
           Case studies
         </h2>
         <p className="mt-3">
-          Files on this site are written from engagements we have shipped.
-          Names, figures, and quotes are presented in good faith. Some details
-          are generalized where a client asked us to.
+          Files on this site are representative engagements from the Kenla
+          company profile. Names and details follow that source. Some wording
+          is shortened for the page.
         </p>
       </section>
       <section>

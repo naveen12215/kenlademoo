@@ -10,7 +10,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Magnetic } from "@/components/animations/Magnetic";
-import { cn } from "@/lib/utils";
+import { ServiceRail } from "@/components/sections/ServiceRail";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -35,48 +35,15 @@ export function ServicePanel({
     <section className="border-t border-warm-200 py-12 lg:py-16">
       <Container>
         <SectionHeading
-          index="02"
+          index="03"
           eyebrow="Services"
-          title="Nine services. One team."
-          subtitle="Select a service — we take it from architecture through launch and the years after."
+          title="What we build. One team."
+          subtitle="Clients bring the problem; we engineer the system. Staff across these practices as the engagement requires."
           titleAs={headingAs}
         />
 
         <div className="@container lg:grid lg:grid-cols-12 lg:items-start lg:gap-16">
-          <div className="chip-scroll -mx-4 mb-8 flex gap-1 overflow-x-auto border-y border-warm-200 px-4 py-1 lg:sticky lg:top-16 lg:col-span-4 lg:mx-0 lg:mb-0 lg:block lg:max-h-[calc(100svh-7rem)] lg:overflow-y-auto lg:overflow-x-visible lg:border-y-0 lg:px-1 lg:py-1">
-            {services.map((item, index) => {
-              const isActive = item.slug === active;
-              return (
-                <button
-                  key={item.slug}
-                  type="button"
-                  aria-pressed={isActive}
-                  onClick={() => setActive(item.slug)}
-                  className={cn(
-                    "service-pop relative flex shrink-0 items-center gap-3 rounded-lg px-2.5 py-4 text-left lg:w-full lg:py-3.5",
-                    isActive ? "z-10 text-white" : "text-warm-700"
-                  )}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="service-rail"
-                      className="brand-gradient-bg absolute inset-0 rounded-lg shadow-sm"
-                      transition={{ type: "spring", stiffness: 280, damping: 34 }}
-                    />
-                  )}
-                  <span
-                    className="index-num relative z-10"
-                    style={isActive ? { color: "#fff" } : undefined}
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="relative z-10 whitespace-nowrap text-[15px] font-semibold lg:whitespace-normal">
-                    {item.title}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+          <ServiceRail activeSlug={active} onSelect={setActive} />
 
           <div className="relative overflow-hidden rounded-xl bg-white p-5 shadow-[0_18px_40px_rgba(238,122,72,0.1)] lg:col-span-8 lg:p-8">
             <div className="brand-gradient-bg absolute inset-x-0 top-0 h-1" />

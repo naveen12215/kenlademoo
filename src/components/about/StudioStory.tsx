@@ -9,18 +9,18 @@ import {
 const chapters = [
   {
     index: "01",
-    label: "Chennai",
-    body: "Kenla Systems was founded in 2009 in Chennai, India, by a small group of engineers who believed that thoughtful, well-crafted software could transform the way businesses operate. What started as a three-person team working out of a modest office has grown into a full-service technology company with deep expertise across custom software development, artificial intelligence, cloud infrastructure, and blockchain.",
+    label: "Founders",
+    body: "KENLA Systems was founded by two software engineers, each with more than twenty years of development experience. The company has since attracted additional investors. Collectively they bring entrepreneurial experience from several successful startups, including Rand Software Corporation, Intelle Engineers, Staytop Systems, and RAN Solutions.",
   },
   {
     index: "02",
-    label: "California",
-    body: "Over the years, we have had the privilege of partnering with startups, mid-market companies, and enterprises across four continents. Our client-facing entity, Optiwise, based in California, bridges the gap between our engineering headquarters in India and our growing roster of North American clients — ensuring seamless communication, aligned time zones for critical milestones, and a local presence that our partners value.",
+    label: "Chennai",
+    body: "Our primary engineering office is in Chennai, India. Engineers and managers there cover web and mobile application development; generative AI and enterprise application development; cloud, DevOps, and platform engineering; blockchain and Web3; technology research; and new market development.",
   },
   {
     index: "03",
-    label: "Two hundred",
-    body: "Today, with over 200 projects delivered and counting, Kenla Systems continues to evolve. We invest heavily in our people, our processes, and the technologies shaping tomorrow. Whether it is building an AI-powered analytics platform, architecting a cloud-native infrastructure, or launching a blockchain-based solution, our mission remains unchanged: deliver software that genuinely moves our clients' businesses forward.",
+    label: "Regions",
+    body: "We deliver from India to clients in the United States, the Middle East, and India. Regional presence with global service is part of how we keep cost competitive without giving up accountability. We work as an extension of the client team: we learn the business, own the architecture, and ship software other engineers can still maintain years later.",
   },
 ];
 
@@ -31,10 +31,9 @@ export function StudioStory() {
         <FadeIn>
           <SectionHeading
             index="01"
-            eyebrow="Story"
-            title="Where it all began"
-            subtitle="A story of craft, not a spec sheet."
-
+            eyebrow="The company"
+            title="Where we work from"
+            subtitle="Chennai engineering. Delivery for U.S., Indian, and Middle Eastern clients."
           />
         </FadeIn>
 

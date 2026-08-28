@@ -5,7 +5,7 @@ const shareImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "Kenla Systems — Custom Software, AI/ML, Cloud & Blockchain",
+  alt: "Kenla Systems — Custom Software · Public Sector · AI · Healthcare",
 };
 
 export function canonicalFor(path: string): Pick<Metadata, "alternates" | "openGraph"> {
@@ -28,7 +28,7 @@ function metadataBase() {
 export const siteMetadata: Metadata = {
   metadataBase: metadataBase(),
   title: {
-    default: `${COMPANY_NAME} — Custom Software, AI/ML, Cloud & Blockchain`,
+    default: `${COMPANY_NAME} — Custom Software · Public Sector · AI · Healthcare`,
     template: `%s | ${COMPANY_NAME}`,
   },
   description: COMPANY_DESCRIPTION,
@@ -36,13 +36,13 @@ export const siteMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: COMPANY_NAME,
-    title: `${COMPANY_NAME} — Custom Software, AI/ML, Cloud & Blockchain`,
+    title: `${COMPANY_NAME} — Custom Software · Public Sector · AI · Healthcare`,
     description: COMPANY_DESCRIPTION,
     images: [shareImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY_NAME} — Custom Software, AI/ML, Cloud & Blockchain`,
+    title: `${COMPANY_NAME} — Custom Software · Public Sector · AI · Healthcare`,
     description: COMPANY_DESCRIPTION,
     images: [shareImage],
   },

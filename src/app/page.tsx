@@ -11,7 +11,7 @@ import { canonicalFor } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: {
-    absolute: `${COMPANY_NAME} — Custom Software, AI/ML, Cloud & Blockchain`,
+    absolute: `${COMPANY_NAME} — Custom Software · Public Sector · AI · Healthcare`,
   },
   description: COMPANY_DESCRIPTION,
   ...canonicalFor("/"),
@@ -21,11 +21,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicePanel />
-      <IndustrySelector />
-      <FeaturedProject />
-      <TechHighlights />
       <WhyKenla />
+      <ServicePanel />
+      <FeaturedProject />
+      <IndustrySelector />
+      <TechHighlights />
       <CtaBand variant="gradient" />
     </>
   );

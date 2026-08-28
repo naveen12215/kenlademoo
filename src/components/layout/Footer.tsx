@@ -2,13 +2,15 @@ import Link from "next/link";
 import {
   COMPANY_NAME,
   COMPANY_EMAIL,
+  COMPANY_REACH_EMAIL,
   COMPANY_LOCATION,
+  COMPANY_REGIONS,
 } from "@/lib/constants";
 
 const colophon = [
   { label: "Services", href: "/services" },
   { label: "Stack", href: "/technologies" },
-  { label: "Project", href: "/projects" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy", href: "/privacy" },
@@ -25,15 +27,20 @@ export function Footer() {
         <p className="text-sm font-semibold tracking-wide text-warm-700">
           © {new Date().getFullYear()} {COMPANY_NAME}
           <span className="mx-2 font-medium text-warm-400">·</span>
-          Chennai
-          <span className="mx-2 font-medium text-warm-400">·</span>
-          California
+          {COMPANY_REGIONS}
           <span className="mx-2 font-medium text-warm-400">·</span>
           <a
             href={`mailto:${COMPANY_EMAIL}`}
             className="font-semibold hover:text-brand-orange"
           >
             {COMPANY_EMAIL}
+          </a>
+          <span className="mx-2 font-medium text-warm-400">·</span>
+          <a
+            href={`mailto:${COMPANY_REACH_EMAIL}`}
+            className="font-semibold hover:text-brand-orange"
+          >
+            {COMPANY_REACH_EMAIL}
           </a>
         </p>
         <p className="text-sm font-semibold tracking-wide text-warm-600">

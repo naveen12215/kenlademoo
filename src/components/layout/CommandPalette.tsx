@@ -45,7 +45,7 @@ function flattenPages(): Hit[] {
     {
       id: "/about",
       label: "About",
-      hint: "The studio",
+      hint: "The company",
       href: "/about",
       group: "Pages",
     },

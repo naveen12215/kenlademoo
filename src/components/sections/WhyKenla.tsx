@@ -7,34 +7,52 @@ import {
 
 const points = [
   {
-    title: "Established since 2009",
+    title: "Technical knowledge",
     description:
-      "Fifteen years of production software. We have stayed through every cycle — that longevity is the quiet part of the contract.",
+      "Practiced engineering across web, mobile, AI, cloud, and blockchain — not a single-stack shop.",
   },
   {
-    title: "End-to-end, one team",
+    title: "Customer relationships",
     description:
-      "Architecture, build, cloud, and the years after launch. No hand-offs between a pitch deck and a pager.",
+      "Direct, durable working relationships. We stay close to the problem after the first release.",
   },
   {
-    title: "The stack that is current",
+    title: "Custom systems, not templates",
     description:
-      "AI/ML, cloud-native, blockchain, modern frontend — we invest in the tools your product will still be on in five years.",
+      "Applications built to the client’s process and constraints — not a generic package with a logo swap.",
+  },
+  {
+    title: "Regional presence, global service",
+    description:
+      "Chennai engineering with delivery experience for U.S., Indian, and Middle Eastern clients.",
+  },
+  {
+    title: "Delivery quality",
+    description:
+      "Testing, review, and operational discipline treated as part of the engagement, not an afterthought.",
+  },
+  {
+    title: "In-house talent training",
+    description:
+      "We grow engineers internally so the team that starts a system can still own it years later.",
   },
 ];
 
 export function WhyKenla() {
   return (
-    <section className="bg-warm-100/60 py-12 lg:py-16">
+    <section
+      id="areas-of-strength"
+      className="scroll-mt-[6.25rem] bg-warm-100/60 py-12 lg:py-16 lg:scroll-mt-[calc(var(--chrome-header)+1rem)]"
+    >
       <Container>
         <SectionHeading
-          index="06"
-          eyebrow="Why Kenla"
-          title="A service company that still writes the software."
-          subtitle="From first sketch to production, we stay on the work."
+          index="02"
+          eyebrow="Areas of strength"
+          title="How we conduct business."
+          subtitle="These six strengths are how we differentiate ourselves."
         />
 
-        <StaggerChildren className="grid gap-4 md:grid-cols-3">
+        <StaggerChildren className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {points.map((item, index) => (
             <StaggerItem key={item.title}>
               <div className="studio-value group relative h-full overflow-hidden rounded-xl bg-white p-8 shadow-[0_12px_28px_rgba(238,122,72,0.08)] md:p-10">

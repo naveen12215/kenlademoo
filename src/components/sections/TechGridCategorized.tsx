@@ -6,7 +6,9 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { techUsedIn } from "@/lib/tech-used-in";
 import type { Technology, TechCategory } from "@/types";
 
-const categories = Object.entries(techCategories) as [TechCategory, string][];
+const categories = Object.entries(techCategories).filter(
+  (entry): entry is [TechCategory, string] => Boolean(entry[1])
+);
 
 interface TechGridCategorizedProps {
   technologies?: Technology[];

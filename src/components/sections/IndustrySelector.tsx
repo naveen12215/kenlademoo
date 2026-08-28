@@ -38,10 +38,10 @@ export function IndustrySelector() {
     <section className="bg-warm-100/70 py-12 lg:py-16">
       <Container>
         <SectionHeading
-          index="03"
+          index="05"
           eyebrow="Stack builder"
-          title="Pick an industry — or a product type."
-          subtitle="We'll surface the service, a matching engagement, and the stack we would actually use. Not a brochure. A working brief."
+          title="Public sector, healthcare, or a commercial build."
+          subtitle="We’ll surface the practice, a matching engagement from the Kenla profile, and the stack we would actually use."
         />
 
         <div className="sticky top-[6.25rem] z-20 -mx-4 mb-8 bg-warm-100/90 px-4 py-3 backdrop-blur-md lg:static lg:top-auto lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">

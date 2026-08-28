@@ -12,7 +12,7 @@ import { canonicalFor } from "@/lib/metadata";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore how Kenla Systems has helped clients across industries solve complex challenges with custom software, AI, cloud infrastructure, and blockchain solutions.",
+    "Selected Kenla Systems engagements: public-sector platforms, generative AI applications, and healthcare systems from the company profile.",
   ...canonicalFor("/projects"),
 };
 
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
       <PageIntro
         eyebrow="Project"
         title={<GradientText>Projects</GradientText>}
-        body="Each file opens the same way: the problem, the work, the numbers. FinTech, insurance, healthcare, government, Web3, enterprise."
+        body="Each file is an engagement from the Kenla profile: the problem, the work, what shipped. Public sector, generative AI, and healthcare."
         marks={false}
       />
 

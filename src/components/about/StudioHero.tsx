@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { GradientText } from "@/components/ui/GradientText";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { LineReveal } from "@/components/animations/LineReveal";
+import { COMPANY_REGIONS, COMPANY_VISION } from "@/lib/constants";
 
 export function StudioHero() {
   return (
@@ -41,13 +42,16 @@ export function StudioHero() {
         <div className="ink-rule mt-5 max-w-[14rem]" />
 
         <FadeIn direction="up" delay={0.48}>
-          <p className="mt-8 max-w-lg text-lg leading-relaxed font-medium text-warm-800">
-            Three engineers in Chennai. A California presence. Two hundred
-            projects later, the mission is the same: software that actually
-            moves the business.
+          <p className="display-h2 mt-8 max-w-2xl font-heading font-extrabold tracking-tight text-dark">
+            {COMPANY_VISION}
+          </p>
+          <p className="mt-4 max-w-xl text-[17px] leading-relaxed font-semibold text-dark md:text-[19px]">
+            A custom software services company. We take ownership of the
+            problem, choose the stack that fits, and stay accountable through
+            launch and after.
           </p>
           <p className="mt-6 text-[12px] font-semibold tracking-[0.18em] text-brand-orange uppercase">
-            Chennai · California
+            {COMPANY_REGIONS}
           </p>
         </FadeIn>
       </Container>

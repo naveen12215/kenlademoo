@@ -17,7 +17,7 @@ export function StudioStats() {
             index="04"
             eyebrow="Proof"
             title="By the numbers"
-            subtitle="Quiet proof. Loud enough."
+            subtitle="What the company profile states — not a marketing scoreboard."
 
           />
         </FadeIn>
@@ -27,7 +27,8 @@ export function StudioStats() {
           <StaggerChildren className="grid grid-cols-2 md:grid-cols-4">
             {companyStats.map((stat, index) => (
               <StaggerItem key={stat.label}>
-                <div className="border-warm-100 px-6 py-8 max-md:[&:nth-child(-n+2)]:border-b max-md:[&:nth-child(odd)]:border-r md:border-r md:px-8 md:py-10 md:last:border-r-0">
+                <div className="group relative border-warm-100 px-6 py-8 max-md:[&:nth-child(-n+2)]:border-b max-md:[&:nth-child(odd)]:border-r md:border-r md:px-8 md:py-10 md:last:border-r-0 transition-transform duration-300 hover:-translate-y-0.5">
+                  <span className="brand-gradient-bg absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
                   <p className="index-num mb-4">
                     {String(index + 1).padStart(2, "0")}
                   </p>

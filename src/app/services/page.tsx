@@ -6,7 +6,7 @@ import { canonicalFor } from "@/lib/metadata";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Custom software, AI/ML, cloud & DevOps, blockchain, web, mobile, rapid prototyping, Salesforce, and automation. Explore Kenla Systems' full range of software engineering services.",
+    "Custom software, public-sector systems, generative AI, healthcare applications, cloud, web, mobile, and blockchain. Clients bring the problem; Kenla engineers the system.",
   ...canonicalFor("/services"),
 };
 

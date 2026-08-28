@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FadeIn } from "@/components/animations/FadeIn";
 import {
   StaggerChildren,
   StaggerItem,
@@ -38,13 +39,14 @@ export function StudioValues({ values }: { values: StudioValue[] }) {
   return (
     <section className="bg-warm-100/70 py-12 lg:py-16">
       <Container>
-        <SectionHeading
-          index="03"
-          eyebrow="Principles"
-          title="What we stand for"
-          subtitle="The principles that guide every decision, every line of code, and every client relationship."
-
-        />
+        <FadeIn>
+          <SectionHeading
+            index="03"
+            eyebrow="Principles"
+            title="Areas of strength"
+            subtitle="These six strengths are how we differentiate ourselves and how we conduct business."
+          />
+        </FadeIn>
 
         <div className="relative overflow-hidden rounded-xl bg-white p-7 shadow-[0_18px_40px_rgba(238,122,72,0.1)] md:p-10 lg:p-12">
           <div className="brand-gradient-bg absolute inset-x-0 top-0 h-1" />
@@ -84,7 +86,7 @@ export function StudioValues({ values }: { values: StudioValue[] }) {
           </AnimatePresence>
         </div>
 
-        <StaggerChildren className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerChildren className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {values.map((value, valueIndex) => {
             const selected = valueIndex === index;
             return (

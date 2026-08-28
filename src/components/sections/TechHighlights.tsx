@@ -15,12 +15,12 @@ const highlightedTech = [
   { name: "Python", icon: "python" },
   { name: "Node.js", icon: "nodejs" },
   { name: "AWS", icon: "aws" },
-  { name: "Kubernetes", icon: "kubernetes" },
-  { name: "TensorFlow", icon: "tensorflow" },
-  { name: "Solidity", icon: "solidity" },
+  { name: "LangChain", icon: "langchain" },
+  { name: "Claude", icon: "claude" },
+  { name: ".NET", icon: "dotnet" },
   { name: "PostgreSQL", icon: "postgresql" },
   { name: "Docker", icon: "docker" },
-  { name: "Go", icon: "go" },
+  { name: "Kubernetes", icon: "kubernetes" },
 ];
 
 export function TechHighlights() {
@@ -28,10 +28,10 @@ export function TechHighlights() {
     <section className="bg-warm-100/70 py-12 lg:py-16">
       <Container>
         <SectionHeading
-          index="05"
+          index="06"
           eyebrow="Stack"
-          title="Fifty-four tools we actually ship with."
-          subtitle="Not a wall of logos. A working set — from frontend to chain."
+          title="We choose tools that fit the problem."
+          subtitle="The stack from the Kenla company profile — what we use in production today."
         />
 
         <StaggerChildren className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4" staggerDelay={0.045}>

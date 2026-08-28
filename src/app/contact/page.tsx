@@ -5,7 +5,7 @@ import { canonicalFor } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: `Get in touch with ${COMPANY_NAME}. Let's discuss your next software project, AI solution, or cloud infrastructure needs.`,
+  description: `New work and partnerships with ${COMPANY_NAME}. Adyar, Chennai office. Reach Venkat Munsif — +91 95000 62603, venkatm@kenlasystems.com.`,
   ...canonicalFor("/contact"),
 };
 

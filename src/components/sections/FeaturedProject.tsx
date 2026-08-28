@@ -42,7 +42,7 @@ export function FeaturedProject() {
           index="04"
           eyebrow="Project"
           title="Work from the cabinet."
-          subtitle="Problem, numbers, the line the client still repeats."
+          subtitle="Problem, the work, what shipped."
         />
 
         <FadeIn>

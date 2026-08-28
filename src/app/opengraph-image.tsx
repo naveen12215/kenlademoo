@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Kenla Systems — Custom Software, AI/ML, Cloud & Blockchain";
+export const alt = "Kenla Systems — Custom Software · Public Sector · AI · Healthcare";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -48,10 +48,10 @@ export default function OpenGraphImage() {
               letterSpacing: "-0.03em",
             }}
           >
-            Custom software, AI, cloud & blockchain.
+            Custom software · public sector · AI · healthcare.
           </div>
           <div style={{ fontSize: 28, color: "#4e4a46", fontWeight: 500 }}>
-            Engineering Tomorrow&apos;s Software, Today.
+            Software engineering since 2009.
           </div>
         </div>
         <div
@@ -65,7 +65,7 @@ export default function OpenGraphImage() {
             textTransform: "uppercase",
           }}
         >
-          <span>Chennai · California</span>
+          <span>US · India · Middle East</span>
           <span>Since 2009</span>
         </div>
       </div>

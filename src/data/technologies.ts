@@ -1,18 +1,18 @@
 import type { Technology, TechCategory } from "@/types";
 
-export const techCategories: Record<TechCategory, string> = {
+export const techCategories: Partial<Record<TechCategory, string>> = {
   frontend: "Frontend",
   backend: "Backend",
   mobile: "Mobile",
   cloud: "Cloud",
-  "ai-ml": "AI & ML",
+  "ai-ml": "Generative AI",
+  database: "Data",
   blockchain: "Blockchain",
-  database: "Database",
   devops: "DevOps",
 };
 
 export const technologies: Technology[] = [
-  // ─── Frontend ──────────────────────────────────────────────────────
+  // ─── Frontend (PDF) ────────────────────────────────────────────────
   {
     name: "React",
     icon: "react",
@@ -21,7 +21,7 @@ export const technologies: Technology[] = [
     description:
       "Component-based UI library for building fast, interactive single-page and server-rendered applications.",
     usedFor:
-      "Trading dashboards, patient portals, and other interactive product UIs.",
+      "IPOR and IV&V, Cash for College, Insight 360, Annie ACS, Saguaro Health, and BCMP.",
   },
   {
     name: "Next.js",
@@ -31,7 +31,7 @@ export const technologies: Technology[] = [
     description:
       "Full-stack React framework with server-side rendering, static generation, and API routes built in.",
     usedFor:
-      "Marketing sites, authenticated portals, and SEO-sensitive product surfaces.",
+      "Public sites, authenticated portals, and SEO-sensitive product surfaces.",
   },
   {
     name: "Vue.js",
@@ -51,7 +51,7 @@ export const technologies: Technology[] = [
     description:
       "Enterprise-grade TypeScript framework with opinionated structure, dependency injection, and RxJS.",
     usedFor:
-      "Large enterprise consoles, banking back-offices, and long-lived internal tools.",
+      "Large departmental consoles and long-lived internal tools.",
   },
   {
     name: "TypeScript",
@@ -61,17 +61,7 @@ export const technologies: Technology[] = [
     description:
       "Typed superset of JavaScript that catches errors at compile time and improves developer productivity.",
     usedFor:
-      "Every production web and API surface we ship — from dashboards to backends.",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: "tailwindcss",
-    category: "frontend",
-    proficiency: "expert",
-    description:
-      "Utility-first CSS framework for rapidly building custom designs without leaving your markup.",
-    usedFor:
-      "Marketing sites, design-system UIs, and fast-moving product interfaces.",
+      "IPOR and IV&V, Cash for College, and Business Continuity Management.",
   },
   {
     name: "HTML5 / CSS3",
@@ -84,6 +74,16 @@ export const technologies: Technology[] = [
       "Foundational layouts and every browser-facing Kenla product.",
   },
   {
+    name: "Tailwind CSS",
+    icon: "tailwindcss",
+    category: "frontend",
+    proficiency: "expert",
+    description:
+      "Utility-first CSS framework for rapidly building custom designs without leaving your markup.",
+    usedFor:
+      "Product interfaces and marketing surfaces in the Kenla frontend stack.",
+  },
+  {
     name: "Redux",
     icon: "redux",
     category: "frontend",
@@ -91,10 +91,10 @@ export const technologies: Technology[] = [
     description:
       "Predictable state management for JavaScript apps, commonly paired with React for complex state logic.",
     usedFor:
-      "Trading desks, multi-step wizards, and apps with shared global state.",
+      "Dashboards, multi-step wizards, and apps with shared global state.",
   },
 
-  // ─── Backend ───────────────────────────────────────────────────────
+  // ─── Backend (PDF) ─────────────────────────────────────────────────
   {
     name: "Node.js",
     icon: "nodejs",
@@ -103,7 +103,7 @@ export const technologies: Technology[] = [
     description:
       "JavaScript runtime built on V8, ideal for scalable network applications and real-time services.",
     usedFor:
-      "Real-time APIs, trading feeds, and full-stack JavaScript product backends.",
+      "IPOR and IV&V, Cash for College, BCMP, and Saguaro Health APIs.",
   },
   {
     name: "Python",
@@ -113,7 +113,7 @@ export const technologies: Technology[] = [
     description:
       "Versatile language excelling in web backends, data science, scripting, and AI/ML workloads.",
     usedFor:
-      "ML pipelines, document processing, and data-heavy service layers.",
+      "Legacy Modernization Assistant, Insight 360, Annie ACS, and Resume Analysis Assistant.",
   },
   {
     name: "Java",
@@ -123,7 +123,7 @@ export const technologies: Technology[] = [
     description:
       "Enterprise workhorse with a mature ecosystem, strong typing, and battle-tested concurrency support.",
     usedFor:
-      "Enterprise integrations, core banking services, and high-throughput backends.",
+      "Enterprise integrations and departmental backends on the JVM.",
   },
   {
     name: "Go",
@@ -134,6 +134,16 @@ export const technologies: Technology[] = [
       "Compiled language by Google, designed for simplicity, concurrency, and high-performance microservices.",
     usedFor:
       "Low-latency microservices, API gateways, and high-concurrency workers.",
+  },
+  {
+    name: "Scala",
+    icon: "scala",
+    category: "backend",
+    proficiency: "proficient",
+    description:
+      "JVM language for concurrent and data-heavy backends, often paired with Play and Akka.",
+    usedFor:
+      "High-concurrency services and data pipelines on the JVM.",
   },
   {
     name: "Express.js",
@@ -153,7 +163,7 @@ export const technologies: Technology[] = [
     description:
       "Modern, high-performance Python web framework with automatic OpenAPI docs and async support.",
     usedFor:
-      "ML inference APIs, document pipelines, and Python microservices.",
+      "LLM inference APIs for LMA, Insight 360, Annie ACS, and resume screening.",
   },
   {
     name: "Spring Boot",
@@ -163,7 +173,27 @@ export const technologies: Technology[] = [
     description:
       "Convention-over-configuration Java framework for production-ready microservices and enterprise apps.",
     usedFor:
-      "Enterprise microservices, insurance cores, and Java-heavy platforms.",
+      "Enterprise microservices and Java-heavy departmental platforms.",
+  },
+  {
+    name: "Play",
+    icon: "play",
+    category: "backend",
+    proficiency: "proficient",
+    description:
+      "Reactive web framework on the JVM for Scala and Java HTTP services.",
+    usedFor:
+      "JVM HTTP APIs and Play-based service layers.",
+  },
+  {
+    name: "Akka",
+    icon: "akka",
+    category: "backend",
+    proficiency: "proficient",
+    description:
+      "Actor toolkit for concurrent, distributed JVM systems.",
+    usedFor:
+      "Message-driven backends that have to stay up under load.",
   },
   {
     name: "GraphQL",
@@ -183,30 +213,40 @@ export const technologies: Technology[] = [
     description:
       "Industry-standard architectural style for designing networked applications with stateless operations.",
     usedFor:
-      "Every integration surface — from claims systems to patient records.",
+      "Field Information System, IPOR and IV&V, and Business Continuity Management integrations.",
   },
-
-  // ─── Mobile ────────────────────────────────────────────────────────
   {
-    name: "React Native",
-    icon: "react",
-    category: "mobile",
+    name: ".NET",
+    icon: "dotnet",
+    category: "backend",
     proficiency: "advanced",
     description:
-      "Cross-platform mobile framework using React, sharing code between iOS and Android apps.",
+      "Microsoft's application platform for web APIs, services, and microservices.",
     usedFor:
-      "Cross-platform consumer and clinician apps sharing one team.",
+      "Field Information System — full-stack .NET microservices for State of California field operations.",
   },
   {
-    name: "Flutter",
-    icon: "flutter",
-    category: "mobile",
+    name: "Ruby on Rails",
+    icon: "rubyonrails",
+    category: "backend",
     proficiency: "proficient",
     description:
-      "Google's UI toolkit for natively compiled mobile, web, and desktop apps from a single Dart codebase.",
+      "Convention-over-configuration web framework for rapid, maintainable server-side applications.",
     usedFor:
-      "Pixel-perfect mobile products that must feel native on iOS and Android.",
+      "Web applications and admin surfaces when Rails is the stack that fits.",
   },
+  {
+    name: "Apache Spark",
+    icon: "apachespark",
+    category: "backend",
+    proficiency: "proficient",
+    description:
+      "Distributed processing engine for large-scale batch and streaming data.",
+    usedFor:
+      "Batch jobs, catalogs, and data-heavy modernization work.",
+  },
+
+  // ─── Mobile (PDF) ──────────────────────────────────────────────────
   {
     name: "Swift",
     icon: "swift",
@@ -215,7 +255,17 @@ export const technologies: Technology[] = [
     description:
       "Apple's modern language for building native iOS, macOS, watchOS, and tvOS applications.",
     usedFor:
-      "Native iOS companions, health apps, and Apple-first product surfaces.",
+      "Native iOS applications when the platform matters.",
+  },
+  {
+    name: "Objective-C",
+    icon: "objectivec",
+    category: "mobile",
+    proficiency: "proficient",
+    description:
+      "Apple's original language for iOS and macOS — still required on older native estates.",
+    usedFor:
+      "iOS applications that still run Objective-C alongside Swift.",
   },
   {
     name: "Kotlin",
@@ -226,26 +276,67 @@ export const technologies: Technology[] = [
       "Modern JVM language and the recommended language for native Android app development.",
     usedFor: "Native Android apps and JVM mobile clients.",
   },
+  {
+    name: "React Native",
+    icon: "react",
+    category: "mobile",
+    proficiency: "advanced",
+    description:
+      "Cross-platform mobile framework using React, sharing code between iOS and Android apps.",
+    usedFor:
+      "Independent Project Oversight and IV&V — web and mobile findings tracking.",
+  },
+  {
+    name: "Flutter",
+    icon: "flutter",
+    category: "mobile",
+    proficiency: "proficient",
+    description:
+      "Google's UI toolkit for natively compiled mobile, web, and desktop apps from a single Dart codebase.",
+    usedFor:
+      "Cross-platform mobile products that must feel native on iOS and Android.",
+  },
+  {
+    name: "Cordova",
+    icon: "cordova",
+    category: "mobile",
+    proficiency: "proficient",
+    description:
+      "Hybrid mobile toolkit wrapping a web view as an iOS and Android app.",
+    usedFor:
+      "Existing hybrid estates that need to keep shipping on Cordova.",
+  },
+  {
+    name: "Oracle MAF",
+    icon: "oraclemaf",
+    category: "mobile",
+    proficiency: "proficient",
+    description:
+      "Oracle Mobile Application Framework for enterprise mobile clients on Oracle stacks.",
+    usedFor:
+      "Enterprise mobility when the client estate is already on Oracle.",
+  },
+  {
+    name: "SAP Mobile Platform",
+    icon: "sapmobileplatform",
+    category: "mobile",
+    proficiency: "proficient",
+    description:
+      "SAP's platform for enterprise mobile applications connected to SAP backends.",
+    usedFor:
+      "Mobile clients on SAP estates when the problem sits there.",
+  },
 
-  // ─── Cloud ─────────────────────────────────────────────────────────
+  // ─── Cloud (PDF) ───────────────────────────────────────────────────
   {
     name: "AWS",
     icon: "aws",
     category: "cloud",
     proficiency: "expert",
     description:
-      "Amazon's comprehensive cloud platform — EC2, S3, Lambda, RDS, and 200+ managed services.",
+      "Amazon's comprehensive cloud platform — EC2, S3, Lambda, RDS, and managed services.",
     usedFor:
-      "Production hosting for trading, claims, and healthcare platforms.",
-  },
-  {
-    name: "Google Cloud",
-    icon: "gcp",
-    category: "cloud",
-    proficiency: "advanced",
-    description:
-      "Google's cloud platform with strengths in data analytics, Kubernetes (GKE), and AI/ML services.",
-    usedFor: "Analytics-heavy and ML-adjacent cloud estates.",
+      "Field Information System, Cash for College, and Saguaro Health production hosting.",
   },
   {
     name: "Microsoft Azure",
@@ -258,6 +349,25 @@ export const technologies: Technology[] = [
       "Enterprise and hybrid deployments in Microsoft-centric shops.",
   },
   {
+    name: "Google Cloud",
+    icon: "gcp",
+    category: "cloud",
+    proficiency: "advanced",
+    description:
+      "Google's cloud platform with strengths in data analytics, Kubernetes (GKE), and AI/ML services.",
+    usedFor: "Analytics-heavy and ML-adjacent cloud estates.",
+  },
+  {
+    name: "DigitalOcean",
+    icon: "digitalocean",
+    category: "cloud",
+    proficiency: "advanced",
+    description:
+      "Straightforward cloud for droplets, managed databases, and Kubernetes.",
+    usedFor:
+      "Production apps and staging estates that need a simpler cloud bill.",
+  },
+  {
     name: "Vercel",
     icon: "vercel",
     category: "cloud",
@@ -265,58 +375,29 @@ export const technologies: Technology[] = [
     description:
       "Frontend cloud platform optimized for Next.js, with instant deployments and edge functions.",
     usedFor:
-      "Next.js marketing sites, portals, and edge-rendered product apps.",
-  },
-  {
-    name: "Netlify",
-    icon: "netlify",
-    category: "cloud",
-    proficiency: "advanced",
-    description:
-      "Jamstack-focused platform for deploying static sites and serverless functions with Git-based workflows.",
-    usedFor: "Static and Jamstack sites with Git-based deploys.",
+      "Next.js sites, portals, and edge-rendered product apps.",
   },
 
-  // ─── AI & ML ───────────────────────────────────────────────────────
-  {
-    name: "TensorFlow",
-    icon: "tensorflow",
-    category: "ai-ml",
-    proficiency: "advanced",
-    description:
-      "Google's open-source ML framework for building and deploying models at scale, from research to production.",
-    usedFor:
-      "Document classification, claims models, and production neural nets.",
-  },
-  {
-    name: "PyTorch",
-    icon: "pytorch",
-    category: "ai-ml",
-    proficiency: "advanced",
-    description:
-      "Flexible deep learning framework favored for research and rapid prototyping with dynamic computation graphs.",
-    usedFor:
-      "Research-to-production models and custom deep-learning pipelines.",
-  },
-  {
-    name: "OpenAI / GPT",
-    icon: "openai",
-    category: "ai-ml",
-    proficiency: "expert",
-    description:
-      "Large language model APIs for text generation, summarization, code completion, and conversational AI.",
-    usedFor:
-      "Extraction, summarization, and conversational assistants in claims and ops.",
-  },
+  // ─── Generative AI (PDF) ───────────────────────────────────────────
   {
     name: "LangChain",
     icon: "langchain",
     category: "ai-ml",
     proficiency: "expert",
     description:
-      "Framework for building context-aware LLM applications with chains, agents, and retrieval-augmented generation.",
+      "Framework for building context-aware LLM applications with chains, agents, ReAct, Chain-of-Thought, and retrieval-augmented generation.",
     usedFor:
-      "RAG assistants, policy Q&A, and multi-step LLM workflows.",
+      "Legacy Modernization Assistant, Insight 360, Annie ACS, and Resume Analysis Assistant.",
+  },
+  {
+    name: "LangGraph",
+    icon: "langgraph",
+    category: "ai-ml",
+    proficiency: "expert",
+    description:
+      "Graph orchestration for LangChain agents — stateful, cyclic workflows with ReAct and Chain-of-Thought control.",
+    usedFor:
+      "Multi-step assistants, audit and recruitment workflows, and tool-using agents.",
   },
   {
     name: "Hugging Face",
@@ -326,30 +407,151 @@ export const technologies: Technology[] = [
     description:
       "Open-source hub for pre-trained models and the Transformers library for NLP, vision, and audio tasks.",
     usedFor:
-      "Fine-tuned NLP models and open-source transformer pipelines.",
+      "Legacy Modernization Assistant — analysis of COBOL, FORTRAN, and similar stacks.",
   },
   {
-    name: "scikit-learn",
-    icon: "scikitlearn",
+    name: "AWS Bedrock",
+    icon: "awsbedrock",
+    category: "ai-ml",
+    proficiency: "advanced",
+    description:
+      "Amazon's managed service for running foundation models — Claude, Llama, Titan, and others — behind one API.",
+    usedFor:
+      "Production LLM workloads on AWS without standing up a GPU fleet.",
+  },
+  {
+    name: "Claude",
+    icon: "claude",
     category: "ai-ml",
     proficiency: "expert",
     description:
-      "Python library for classical machine learning — classification, regression, clustering, and feature engineering.",
+      "Anthropic's large language models for long-context analysis, drafting, and assistants that stay inside source material.",
     usedFor:
-      "Scoring models, classification, and classical ML in ops workflows.",
+      "Document analysis, clinic and policy assistants, and values-layer command centers.",
   },
   {
-    name: "Pandas",
-    icon: "pandas",
+    name: "OpenAI / GPT",
+    icon: "openai",
     category: "ai-ml",
     proficiency: "expert",
     description:
-      "Data manipulation and analysis library providing DataFrame structures for tabular data processing.",
+      "GPT-4 and related large language model APIs for generation, summarization, code, and conversational AI.",
     usedFor:
-      "Claims datasets, ETL, and every tabular pipeline we run.",
+      "LMA, Insight 360, Annie ACS, and Resume Analysis Assistant.",
+  },
+  {
+    name: "Llama 3",
+    icon: "llama3",
+    category: "ai-ml",
+    proficiency: "advanced",
+    description:
+      "Meta's open large language model family for self-hosted and private inference when a public API is not the fit.",
+    usedFor:
+      "Private RAG pipelines and on-prem or VPC assistants.",
+  },
+  {
+    name: "Gemini",
+    icon: "gemini",
+    category: "ai-ml",
+    proficiency: "advanced",
+    description:
+      "Google's multimodal foundation models for text, image, and document understanding.",
+    usedFor:
+      "Multimodal assistants and Google-cloud LLM paths.",
+  },
+  {
+    name: "Chroma",
+    icon: "chroma",
+    category: "ai-ml",
+    proficiency: "advanced",
+    description:
+      "Open-source vector store for embeddings — the retrieval layer in RAG pipelines.",
+    usedFor:
+      "Company-knowledge and departmental document retrieval.",
+  },
+  {
+    name: "Pinecone",
+    icon: "pinecone",
+    category: "ai-ml",
+    proficiency: "advanced",
+    description:
+      "Managed vector database for similarity search at production scale.",
+    usedFor:
+      "Hosted vector search when the RAG corpus has to stay fast under load.",
   },
 
-  // ─── Blockchain ────────────────────────────────────────────────────
+  // ─── Data (PDF) ────────────────────────────────────────────────────
+  {
+    name: "PostgreSQL",
+    icon: "postgresql",
+    category: "database",
+    proficiency: "expert",
+    description:
+      "Advanced open-source relational database with JSONB support, full-text search, and extensibility.",
+    usedFor:
+      "FIS, CCFC, IPOR, BCMP, Insight 360, resume screening, and Saguaro Health.",
+  },
+  {
+    name: "MySQL",
+    icon: "mysql",
+    category: "database",
+    proficiency: "advanced",
+    description:
+      "Widely adopted open-source relational database known for reliability and ease of use.",
+    usedFor: "Classic relational apps and hosted-product backends.",
+  },
+  {
+    name: "Oracle",
+    icon: "oracle",
+    category: "database",
+    proficiency: "advanced",
+    description:
+      "Enterprise relational database for systems that already run on Oracle, including long-lived departmental data.",
+    usedFor:
+      "Legacy and enterprise cores that have to stay on Oracle.",
+  },
+  {
+    name: "MongoDB",
+    icon: "mongodb",
+    category: "database",
+    proficiency: "advanced",
+    description:
+      "Document-oriented NoSQL database designed for flexible schemas and horizontal scalability.",
+    usedFor:
+      "Flexible catalogs, event logs, and rapidly evolving document stores.",
+  },
+  {
+    name: "Redis",
+    icon: "redis",
+    category: "database",
+    proficiency: "expert",
+    description:
+      "In-memory data store used as a cache, message broker, and session backend.",
+    usedFor:
+      "Session caches and sub-second real-time paths.",
+  },
+  {
+    name: "Elasticsearch",
+    icon: "elasticsearch",
+    category: "database",
+    proficiency: "advanced",
+    description:
+      "Distributed search and analytics engine for log analysis, full-text search, and real-time data exploration.",
+    usedFor:
+      "Document search, log analytics, and full-text lookup.",
+  },
+  {
+    name: "Firebase",
+    icon: "firebase",
+    category: "database",
+    proficiency: "advanced",
+    description:
+      "Google's Backend-as-a-Service with real-time database, authentication, and hosting.",
+    usedFor:
+      "Realtime clients, auth-backed mobile companions, and rapid backends.",
+  },
+
+  // ─── Blockchain (PDF) ──────────────────────────────────────────────
   {
     name: "Solidity",
     icon: "solidity",
@@ -357,7 +559,8 @@ export const technologies: Technology[] = [
     proficiency: "expert",
     description:
       "Contract-oriented language for writing smart contracts on Ethereum and EVM-compatible chains.",
-    usedFor: "Smart contracts for DeFi, tokens, and EVM product logic.",
+    usedFor:
+      "Smart contracts, tokens, and EVM product logic when the engagement needs a chain.",
   },
   {
     name: "Ethereum",
@@ -365,9 +568,9 @@ export const technologies: Technology[] = [
     category: "blockchain",
     proficiency: "expert",
     description:
-      "The leading programmable blockchain for decentralized applications, DeFi, and NFTs.",
+      "The leading programmable blockchain for decentralized applications.",
     usedFor:
-      "Mainnet settlement, DeFi protocols, and NFT-adjacent products.",
+      "Mainnet settlement and EVM application work when the problem calls for it.",
   },
   {
     name: "Polygon",
@@ -377,7 +580,17 @@ export const technologies: Technology[] = [
     description:
       "Ethereum Layer 2 scaling solution providing faster, cheaper transactions while inheriting Ethereum security.",
     usedFor:
-      "Lower-cost dApps, consumer Web3, and Layer 2 transaction paths.",
+      "Lower-cost dApps and Layer 2 transaction paths.",
+  },
+  {
+    name: "Alchemy",
+    icon: "alchemy",
+    category: "blockchain",
+    proficiency: "advanced",
+    description:
+      "Node and developer platform for Ethereum and Polygon — RPC, webhooks, and enhanced APIs.",
+    usedFor:
+      "Reliable chain access for dApps and contract backends.",
   },
   {
     name: "Hardhat",
@@ -404,93 +617,12 @@ export const technologies: Technology[] = [
     category: "blockchain",
     proficiency: "advanced",
     description:
-      "Decentralized storage protocol for content-addressed file sharing, commonly used for NFT metadata.",
+      "Decentralized storage protocol for content-addressed file sharing.",
     usedFor:
-      "NFT metadata, decentralized assets, and content-addressed storage.",
-  },
-  {
-    name: "Rust (Solana)",
-    icon: "rust",
-    category: "blockchain",
-    proficiency: "proficient",
-    description:
-      "Systems language used for Solana smart programs, delivering high throughput and low-latency on-chain logic.",
-    usedFor:
-      "High-throughput Solana programs and on-chain market logic.",
+      "Decentralized assets and content-addressed storage.",
   },
 
-  // ─── Database ──────────────────────────────────────────────────────
-  {
-    name: "PostgreSQL",
-    icon: "postgresql",
-    category: "database",
-    proficiency: "expert",
-    description:
-      "Advanced open-source relational database with JSONB support, full-text search, and extensibility.",
-    usedFor:
-      "Transactional cores — orders, claims, patients, and audit trails.",
-  },
-  {
-    name: "MongoDB",
-    icon: "mongodb",
-    category: "database",
-    proficiency: "advanced",
-    description:
-      "Document-oriented NoSQL database designed for flexible schemas and horizontal scalability.",
-    usedFor:
-      "Flexible catalogs, event logs, and rapidly evolving document stores.",
-  },
-  {
-    name: "Redis",
-    icon: "redis",
-    category: "database",
-    proficiency: "expert",
-    description:
-      "In-memory data store used as a cache, message broker, and real-time leaderboard/session backend.",
-    usedFor:
-      "Market-data caches, sessions, and sub-second real-time paths.",
-  },
-  {
-    name: "MySQL",
-    icon: "mysql",
-    category: "database",
-    proficiency: "advanced",
-    description:
-      "Widely adopted open-source relational database known for reliability and ease of use.",
-    usedFor: "Classic relational apps and hosted-product backends.",
-  },
-  {
-    name: "Firebase",
-    icon: "firebase",
-    category: "database",
-    proficiency: "advanced",
-    description:
-      "Google's Backend-as-a-Service with real-time database, authentication, and hosting for rapid prototyping.",
-    usedFor:
-      "Rapid prototypes, realtime clients, and auth-backed MVPs.",
-  },
-  {
-    name: "Supabase",
-    icon: "supabase",
-    category: "database",
-    proficiency: "advanced",
-    description:
-      "Open-source Firebase alternative built on PostgreSQL with real-time subscriptions and row-level security.",
-    usedFor:
-      "Postgres-backed products that need auth, realtime, and row-level security quickly.",
-  },
-  {
-    name: "Elasticsearch",
-    icon: "elasticsearch",
-    category: "database",
-    proficiency: "advanced",
-    description:
-      "Distributed search and analytics engine for log analysis, full-text search, and real-time data exploration.",
-    usedFor:
-      "Claims search, log analytics, and full-text document lookup.",
-  },
-
-  // ─── DevOps ────────────────────────────────────────────────────────
+  // ─── DevOps (PDF) ──────────────────────────────────────────────────
   {
     name: "Docker",
     icon: "docker",
@@ -499,7 +631,7 @@ export const technologies: Technology[] = [
     description:
       "Container platform for packaging applications and dependencies into portable, reproducible units.",
     usedFor:
-      "Every service we ship — local parity and production containers.",
+      "Field Information System and Saguaro Health production containers.",
   },
   {
     name: "Kubernetes",
@@ -509,7 +641,7 @@ export const technologies: Technology[] = [
     description:
       "Container orchestration system for automating deployment, scaling, and management of containerized workloads.",
     usedFor:
-      "Trading, claims, and always-on production clusters.",
+      "Always-on production clusters for departmental and commercial systems.",
   },
   {
     name: "Terraform",
@@ -528,7 +660,7 @@ export const technologies: Technology[] = [
     description:
       "CI/CD platform integrated into GitHub for automating build, test, and deployment workflows.",
     usedFor:
-      "CI/CD for product repos — build, test, and zero-downtime deploys.",
+      "Field Information System — build, test, and deploy of the AWS microservices.",
   },
   {
     name: "Jenkins",
@@ -549,15 +681,5 @@ export const technologies: Technology[] = [
       "High-performance web server and reverse proxy for load balancing, caching, and SSL termination.",
     usedFor:
       "Reverse proxies, TLS termination, and load balancing in front of APIs.",
-  },
-  {
-    name: "Prometheus / Grafana",
-    icon: "prometheus",
-    category: "devops",
-    proficiency: "advanced",
-    description:
-      "Monitoring and observability stack — Prometheus for metrics collection, Grafana for dashboards and alerting.",
-    usedFor:
-      "Uptime, latency, and ops dashboards on production clusters.",
   },
 ];
